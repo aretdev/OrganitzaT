@@ -3,19 +3,21 @@
 }
 
 body{
-	background-color: black;
+	background-color: white;
 	color: #fff;
 	font-family: 'system-ui';
 }
 
 h1{
-	font-weight: 700;
-	font-size: 3.4em;
+	font-weight: 400;
+	font-size: 2em;
+    color: black;
 }
 
 .subtitle{
 	font-size: 1.25em;
 	opacity: 0.65;
+    color: black;
 }
 
 .card-block{
