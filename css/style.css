@@ -1,0 +1,59 @@
+/*  
+
+	Navigation bootom mobile start style  
+
+*/
+
+#footer-nav-mobile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.nav-mobile-wraper {
+
+	vertical-align: middle;
+	background: red;
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-mobile-wraper ul {
+	padding: 10px 0px 0px 0px;
+	margin: 0;
+	display: flex;
+	width: 400px;
+}
+
+.nav-mobile-wraper ul li {
+	list-style: none;
+	position: relative;
+	list-style: ;
+	z-index: 1;
+	width: calc(400px / 4);
+	height: 70px;
+	left: calc(25 - 5px);
+}
+
+.nav-mobile-wraper ul li a {
+	color: black;
+	text-decoration: none;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	font-weight: 200;
+}
+
+.nav-mobile-wraper ul li a i {
+	font-size: calc(1.5em - 2px);
+	display: block;
+	text-align: center;
+	line-height: 1.5;
+}
