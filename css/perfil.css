@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #000
+}
+
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s
+}
+.card:hover .image img {
+    transform: scale(1.2)
+}
+
+
+.image img {
+    transition: all 0.5s;
+    height: 170px;
+    width: 170px;
+     border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.curso {
+    font-size: 20px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
