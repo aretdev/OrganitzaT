@@ -1,0 +1,32 @@
+
+.scroll-wrap {
+	overflow-x: auto;
+	padding: 20px;
+}
+
+.scroll-wrap::after {
+	position: relative;
+	right:60%;
+	background: green;
+	width: 50px !important;
+	height: 10px;
+	content: "♥";
+}
+
+.card-element {
+	padding: 25px;
+	border-radius: 5%;
+	background-color: red;
+	page-break-inside: 20px;
+	max-width: 15vw;
+	min-width: 180px;
+	height: 200px;
+	transition: all 0.2s ease-in-out !important;
+	margin-right: 5px;
+}
+
+.card-element:hover {
+	transition: all 0.5s;
+	opacity: 0.9;
+	transform: translateY(-5px);
+}
