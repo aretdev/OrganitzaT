@@ -21,7 +21,10 @@ h1{
 }
 
 .card-block{
-	height: 200px;
+	height: 175px;
+	width: 175px;
+	min-height: 100px;
+	min-width: 100px;
 	background-color: #fff;
 	border: none;
 	background-position: center;
