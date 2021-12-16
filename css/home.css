@@ -1,5 +1,7 @@
 .scrolling-wrapper{
 	overflow-x: auto;
+	margin: 0;
+	padding: 0;
 }
 
 body{
@@ -90,3 +92,29 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 
 }
 
+.body-wrapper {
+	padding: 50px;
+
+}
+
+.indicator-scroller {
+	position: absolute;
+	background-color:rgba(0, 0, 0, 0.4);
+	z-index: 999;
+	height:175px;
+	width: 70px;
+	left: calc(100% -  100px);
+	vertical-align: middle;
+	align-content: center;
+	border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+}
+
+
+.indicator-scroller span {
+	font-size: 50px;
+	display:table;
+	position: relative;
+	margin:0 auto;
+	top:calc(56% - 50px);
+}
