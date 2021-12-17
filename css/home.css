@@ -2,6 +2,7 @@
 	overflow-x: auto;
 	margin: 0;
 	padding: 0;
+	align-items: center;
 }
 
 body{
@@ -97,7 +98,7 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 
 }
 
-.indicator-scroller {
+.indicator-scroller-right{
 	position: absolute;
 	z-index: 999;
 	height:175px;
@@ -105,12 +106,10 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 	left: calc(100% -  100px);
 	vertical-align: middle;
 	align-content: center;
-	border-top-left-radius: 10px;
-border-bottom-left-radius: 10px;
 }
 
 
-.indicator-scroller span {
+.indicator-scroller-right span {
 	font-size: 50px;
 	display:table;
 	position: relative;
@@ -120,3 +119,27 @@ border-bottom-left-radius: 10px;
 	opacity: 40%;
 	border-radius: 10px;
 }
+
+
+.indicator-scroller-left{
+	position: absolute;
+	z-index: 999;
+	height:175px;
+	left: 40px;
+	width: 70px;
+	vertical-align: middle;
+	align-content: center;
+}
+
+
+.indicator-scroller-left span {
+	font-size: 50px;
+	display:table;
+	position: relative;
+	margin:0 auto;
+	top:calc(56% - 50px);
+	background-color: black;
+	opacity: 40%;
+	border-radius: 10px;
+}
+
