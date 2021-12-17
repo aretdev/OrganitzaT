@@ -99,7 +99,6 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 
 .indicator-scroller {
 	position: absolute;
-	background-color:rgba(0, 0, 0, 0.4);
 	z-index: 999;
 	height:175px;
 	width: 70px;
@@ -117,4 +116,7 @@ border-bottom-left-radius: 10px;
 	position: relative;
 	margin:0 auto;
 	top:calc(56% - 50px);
+	background-color: black;
+	opacity: 40%;
+	border-radius: 10px;
 }
