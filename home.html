@@ -19,8 +19,9 @@
 
             $('#indicator-button').click(function() {
               event.preventDefault();
+              let x = $('#scrolling-ID').scrollLeft();
               $('#scrolling-ID').animate({
-                 scrollLeft : $('#scrolling-ID').offset()+ 100
+                 scrollLeft : x + 100
               });
                 });
 		});
