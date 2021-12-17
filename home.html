@@ -11,63 +11,7 @@
     <link href="./css/home.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <script type="text/javascript">
-
-        $(document).ready(function(){
-
-       (function($) {
-        $.fn.hasScrollBar = function() {
-        var e = this.get(0);
-                return {
-                    horizontal: e.scrollWidth > e.clientWidth
-                };
-            }
-        })(jQuery);
-
-            $('#navigation-bar').load('./common/navbar.html');
-            $('#footernavbar-bar').load('./common/footernavbar.html');
-            $(".indicator-scroller-left").css("display","none")
-            $(".scrolling-wrapper").each(function(i, elem) {
-                if(!$(elem).hasScrollBar().horizontal) {
-                    $(elem).children(".indicator-scroller-right").css("display","none")
-                }
-            })
-
-        });
-        function isEnd(element) {
-            var $width = $(element).outerWidth();
-                var $scrollWidth = $(element)[0].scrollWidth; 
-                var $scrollLeft = $(element).scrollLeft();
-
-                if ($scrollWidth - $width === $scrollLeft){
-                    $(element).children(".indicator-scroller-right").css("display","none")
-                }else {
-                    $(element).children(".indicator-scroller-right").css("display","block")
-                }
-
-                if ($scrollLeft===0){
-                    $(element).children(".indicator-scroller-left").css("display","none")
-                }else {
-                    $(element).children(".indicator-scroller-left").css("display","block")
-                }
-
-        }
-
-        function scrollRightBut(element) {
-                  let x = $(element).parent().scrollLeft();
-                  $(element).parent().animate({
-                     scrollLeft : x + 500
-                 });
-        }
-        function scrollLeftBut(element) {
-            let x = $(element).parent().scrollLeft();
-                  $(element).parent().animate({
-                     scrollLeft  : x - 500
-                 });
-
-        }
-
-    </script>
+    <script type="text/javascript" src="./js/scrollSystem.js"></script>
     <title></title>
 </head>
 <body>
