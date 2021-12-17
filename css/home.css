@@ -1,6 +1,11 @@
 
 .body-wrapper {
-	padding: 10px 70px 0px 70px;
+	padding: 10px 100px 0px 100px;
+}
+
+
+.body-wrapper .container-fluid > h1:first-child {
+	color :red;
 }
 
 .scrolling-wrapper{
@@ -9,6 +14,8 @@
 	padding: 0;
 	align-items: center;
 }
+
+
 
 body{
 	background-color: white;

@@ -18,6 +18,17 @@
             })
 
         });
+        function showBurgerMenu() {
+            $(".burger-elements").slideToggle(400, function(){
+                if($(".burger-elements").is(":visible")) {
+                    $(".burger i").removeClass('bi-list').addClass('bi-x')
+                }else {
+                    $(".burger i").removeClass('bi-x').addClass('bi-list')
+                }
+            });
+
+        }
+
         function isEnd(element) {
             var $width = $(element).outerWidth();
                 var $scrollWidth = $(element)[0].scrollWidth; 
