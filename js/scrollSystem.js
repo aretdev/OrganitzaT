@@ -19,13 +19,14 @@
 
         });
         function showBurgerMenu() {
-            $(".burger-elements").slideToggle(400, function(){
+              $(".burger-elements").toggle("slide", { direction: "right" }, 500, function() {
                 if($(".burger-elements").is(":visible")) {
                     $(".burger i").removeClass('bi-list').addClass('bi-x')
                 }else {
                     $(".burger i").removeClass('bi-x').addClass('bi-list')
                 }
-            });
+
+              })
 
         }
 
