@@ -9,7 +9,6 @@
             }
         })(jQuery);
 
-            $('#navigation-bar').load('./common/navbar.html');
             $('#footernavbar-bar').load('./common/footernavbar.html');
             $(".indicator-scroller-left").css("display","none")
             $(".scrolling-wrapper").each(function(i, elem) {
