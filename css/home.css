@@ -1,3 +1,8 @@
+
+.body-wrapper {
+	padding: 10px 70px 0px 70px;
+}
+
 .scrolling-wrapper{
 	overflow-x: auto;
 	margin: 0;
@@ -24,16 +29,46 @@ h1{
 }
 
 .card-block{
+	cursor: pointer;
 	height: 175px;
 	width: 175px;
-	min-height: 100px;
-	min-width: 100px;
+	min-height: 50px;
+	min-width: 50px;
 	background-color: #fff;
 	border: none;
 	background-position: center;
 	background-size: cover;
 	transition: all 0.2s ease-in-out !important;
 	border-radius: 24px;
+	display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+.card-block div {
+	text-align: center;
+	padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+
+}
+.card-block div ul {
+	margin-bottom: -5px;
+	list-style: none;
+	font-size: 12px;
+}
+.card-block div ul li {
+	position: relative;
+	left: -10px;
+}
+
+.card-block div span p {
+	margin-bottom: -10px;
+	font-size: 40px;
+}
+
+.card-block div span i {
+	font-size: 25px;
 }
 .card-block:hover{
 		transform: translateY(-5px);
@@ -93,17 +128,15 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 
 }
 
-.body-wrapper {
-	padding: 50px;
 
-}
 
 .indicator-scroller-right{
+	cursor: pointer;
 	position: absolute;
 	z-index: 999;
 	height:175px;
 	width: 70px;
-	left: calc(100% -  100px);
+	left: calc(100% -  110px);
 	vertical-align: middle;
 	align-content: center;
 }
@@ -122,6 +155,7 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 
 
 .indicator-scroller-left{
+	cursor: pointer;
 	position: absolute;
 	z-index: 999;
 	height:175px;
