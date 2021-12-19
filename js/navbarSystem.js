@@ -11,6 +11,23 @@
 
 // Funciones Post-cargadas
  $(document).ready(function(){
+    window.onscroll = function() {hacerSticky()};
+
+
+
+    function hacerSticky() {
+    var navbarSize = (window.innerWidth > 768 ) ? "main-navbar" : "footer-main-navbar";
+    var header = document.getElementsByClassName(navbarSize)[0];
+    var sticky = header.offsetTop;
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky-main-navbar");
+
+
+      } else {
+        header.classList.remove("sticky-main-navbar");
+
+      }
+    }
 
  });
 
