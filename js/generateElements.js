@@ -1,2 +1,3 @@
- $('#navigation-bar').load('./common/navbar.html');
- $('#footernavbar-bar').load('./common/footernavbar.html');
+ $(document).ready(function(){
+    $('#footernavbar-bar').load('./common/navbar.html');
+ });

@@ -1,31 +1,73 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">OrganitzaT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div class="main-navbar">
+	<div class="logo-navbar">
+		<img src="./img/logofinal.png" width="200px">
+	</div>
+	<div class="nav-mobile-wraper">
+		<ul>
+			<li>
+				<a href="">
+					<span><i class="bi bi-house-door"></i></span>
+					<span>Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<span><i class="bi bi-chat-left"></i></span>
+					<span>Mensajes</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<span><i class="bi bi-pencil-square"></i></span>
+					<span>Calificaciones</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<span><i class="bi bi-book"></i></span>
+					<span>Asignaturas</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="burger-menu-wrap">
+		<div class="burger" onclick="showBurgerMenu('main-navbar')">
+			<i class="bi bi-list"></i>
+		</div>
+	</div>
+	
+	<div class="burger-elements">
+		<ul>
+			<li><a href=""><i class="bi bi-person-circle"></i>Mi Perfil</a></li>
+			<li><a href=""><i class="bi bi-gear"></i>Configuración</a></li>
+			<li><a href=""><i class="bi bi-info-circle"></i>Sobre Nosotros</a></li>
+		</ul>
+		<p>
+			Proyecto DCU <br>
+			2021-2022
+		</p>
+	</div>
+</div>
+
+<div class="footer-main-navbar">
+	<div class="logo-navbar">
+		<img src="./img/logofinal.png" width="200px">
+	</div>
+	<div class="footer-nav-mobile-wraper">
+
+	</div>
+	<div class="burger-menu-wrap">
+		<div class="burger" onclick="showBurgerMenu('footer-main-navbar')">
+			<i class="bi bi-list"></i>
+		</div>
+	</div>
+	
+	<div class="burger-elements">
+		<ul>
+			<li><a href=""><i class="bi bi-person-circle"></i>Mi Perfil</a></li>
+			<li><a href=""><i class="bi bi-gear"></i>Configuración</a></li>
+			<li><a href=""><i class="bi bi-info-circle"></i>Sobre Nosotros</a></li>
+		</ul>
+	</div>
+</div>

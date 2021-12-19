@@ -1,5 +1,14 @@
- $(document).ready(function(){
+/*
+    Proyecto DCU 2021-2022
 
+    Con este script permitimos el funcionamiento de scrolls
+    a modo de "carrousel"
+
+
+*/
+
+
+$(document).ready(function(){
        (function($) {
         $.fn.hasScrollBar = function() {
         var e = this.get(0);
@@ -9,7 +18,6 @@
             }
         })(jQuery);
 
-            $('#footernavbar-bar').load('./common/footernavbar.html');
             $(".indicator-scroller-left").css("display","none")
             $(".scrolling-wrapper").each(function(i, elem) {
                 if(!$(elem).hasScrollBar().horizontal) {
@@ -18,17 +26,7 @@
             })
 
         });
-        function showBurgerMenu() {
-              $(".burger-elements").toggle("slide", { direction: "right" }, 500, function() {
-                if($(".burger-elements").is(":visible")) {
-                    $(".burger i").removeClass('bi-list').addClass('bi-x')
-                }else {
-                    $(".burger i").removeClass('bi-x').addClass('bi-list')
-                }
 
-              })
-
-        }
 
         function isEnd(element) {
             var $width = $(element).outerWidth();
@@ -41,7 +39,7 @@
                     $(element).children(".indicator-scroller-right").css("display","block")
                 }
 
-                if ($scrollLeft===0){
+                if ($scrollLeft <= 20){
                     $(element).children(".indicator-scroller-left").css("display","none")
                 }else {
                     $(element).children(".indicator-scroller-left").css("display","block")
