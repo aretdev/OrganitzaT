@@ -17,11 +17,8 @@ $(document).ready(function(){
                 };
             }
         })(jQuery);
-
-<<<<<<< Updated upstream
-=======
+        
             $('#footernavbar-bar').load('./common/footernavbar.html');
->>>>>>> Stashed changes
             $(".indicator-scroller-left").css("display","none")
             $(".scrolling-wrapper").each(function(i, elem) {
                 if(!$(elem).hasScrollBar().horizontal) {
