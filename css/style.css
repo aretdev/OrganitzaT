@@ -5,6 +5,10 @@
 */
 @media only screen and (min-width: 768px){
 
+	.body-wrapper {
+		margin: 0px 10% 0px 10%;
+	}
+
 	.main-navbar .burger-menu-wrap{
 		position: absolute;
 		z-index: 999;
@@ -34,6 +38,9 @@
 
 @media only screen and (max-width: 768px) {
 
+	.body-wrapper {
+		margin: 15% 10% 0px 10%;
+	}
 	.footer-main-navbar .burger-menu-wrap{
 		position: absolute;
 		top:0;

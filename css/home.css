@@ -1,12 +1,9 @@
 
 .body-wrapper {
-	padding: 10px 100px 0px 100px;
+	margin: calc(15%) 10% 0px 10%;
 }
 
 
-.body-wrapper .container-fluid > h1:first-child {
-	
-}
 
 .scrolling-wrapper{
 	overflow-x: auto;
@@ -37,10 +34,8 @@ h1{
 
 .card-block{
 	cursor: pointer;
-	height: 175px;
+	height: 10em;
 	width: 175px;
-	min-height: 50px;
-	min-width: 50px;
 	background-color: #fff;
 	border: none;
 	background-position: center;
