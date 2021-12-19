@@ -13,7 +13,7 @@
 		position: absolute;
 		z-index: 999;
 		right: 0;
-		padding: 20px;
+		padding: 17px;
 	}
 
 	.footer-main-navbar {
@@ -43,7 +43,7 @@
 	.footer-main-navbar .burger-menu-wrap{
 		position: absolute;
 		top:0;
-		padding: 0px 10px;
+		padding: 0px 17px;
 		z-index: 999;
 		right: 0;
 	}
@@ -83,7 +83,7 @@
 
 .sticky-main-navbar .burger-menu-wrap{
 	position: absolute;
-	padding: 0px 10px;
+	padding: 0px 17px;
 	z-index: 999;
 }
 
