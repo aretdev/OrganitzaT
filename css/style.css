@@ -12,10 +12,11 @@
 	}
 
 	.main-navbar .burger-menu-wrap{
+		line-height: 100%;
 		position: absolute;
+		top:15px;
 		z-index: 999;
-		right: 0;
-		padding: 17px;
+		right: 17px;
 	}
 
 	.footer-main-navbar {
@@ -45,11 +46,10 @@
 		margin: 0% 2% 0px 2%;
 	}
 	.footer-main-navbar .burger-menu-wrap{
+		line-height: 100%;
 		position: absolute;
-		top:0;
-		padding: 0px 17px;
 		z-index: 999;
-		right: 0;
+		right: 10px;
 	}
 
 	.main-navbar .burger-menu-wrap{
@@ -96,7 +96,7 @@
 	font-size: 1.6em ;
 	position: absolute;
 	z-index: 9999;
-	left: calc(100% - 125px);
+	left: calc(100% - 110px);
 	cursor: pointer;
 	font-weight: 200;
 }
@@ -234,7 +234,6 @@
 
 .sticky-main-navbar .burger-menu-wrap{
 	position: absolute;
-	padding: 0px 17px;
 	z-index: 999;
 }
 
@@ -355,20 +354,16 @@
 
 */
 
-
-.burger-menu-wrap .burger {
-	text-align: center;
-	padding: 0;
-	margin: 0;
-}
-
 .burger-menu-wrap .burger i {
 	cursor: pointer;
-	margin: 0;
-	border-radius: 10px;
+	border-radius: 5px;
 	border: 1px solid grey;
-	padding: 0px 5px 0px 5px;
-	font-size: 45px;
+	font-size: 2.8em;
+	padding: 2px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: baseline;
+	z-index: 999;
 }
 
 .burger-menu-wrap .burger i:hover {
