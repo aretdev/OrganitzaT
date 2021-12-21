@@ -180,6 +180,7 @@
 }
 
 .notification-elements-wraper ul li {
+
 	color: black;
 	width: 100%;
 	padding: 10px;
@@ -190,6 +191,7 @@
 }
 
 .notification-elements-wraper ul li span{
+
 	cursor: pointer;
 	background: #d32f2f;
 	float: right;
@@ -225,6 +227,10 @@
 	Sticky components style
 
 */
+
+.sticky-main-navbar + .body-wrapper {
+	background: red;
+}
 
 .sticky-main-navbar .burger-menu-wrap{
 	position: absolute;
@@ -447,7 +453,7 @@ input.search-on-scroll {
 .search-on-scroll + span button {
 	color: white;
 	position: relative;
-	background: grey;
+	background: #2196f3;
 	font-size: 0.8em;
 	display: block;
 	border: none;
@@ -459,9 +465,9 @@ input.search-on-scroll {
 }
 .search-on-scroll + span button:hover {
 	transition: 500ms;
-	color: grey;
+	color: #2196f3;
 	background: white;
-	border: 1px solid grey;
+	border: 1px solid #2196f3;
 }
 
 
