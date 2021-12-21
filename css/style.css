@@ -295,8 +295,8 @@
 
 .footer-nav-mobile-wraper {
 	vertical-align: middle;
-	background: #5a5a59;
 	width: 100%;
+	background-color: #5a5a59;
 	position: relative;
 	display: flex;
 	justify-content: center;
