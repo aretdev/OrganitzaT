@@ -4,7 +4,9 @@
 
 */
 @media only screen and (min-width: 768px){
-
+	.main-navbar .nav-mobile-wraper .notification-nav {
+		display: block;
+	}
 	.body-wrapper {
 		margin: 0px 10% 0px 10%;
 	}
@@ -36,7 +38,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-
+	.main-navbar .nav-mobile-wraper .notification-nav {
+		display: none;
+	}
 	.body-wrapper {
 		margin: 0% 2% 0px 2%;
 	}
@@ -81,6 +85,94 @@
 
 }
 
+/*
+
+	Notification System
+
+*/
+
+ .notification-nav {
+	display: block;
+	font-size: 1.6em ;
+	position: absolute;
+	z-index: 9999;
+	left: calc(100% - 125px);
+	cursor: pointer;
+	font-weight: 200;
+}
+
+.notification-nav span {
+	text-align: center;
+	font-size: 0.4em;
+	right: 0;
+	background: red;
+	border-radius: 100%;
+	width: 1.4em;
+	position: absolute;
+}
+
+.notification-nav:hover {
+	transition: 300ms;
+	color: #ffee58;
+
+}
+.notification-elements-wraper {
+	background: white;
+	border: 2px solid black;
+	border-radius: 10px;
+	border: 1px solid #ccc ;
+	position: fixed;
+	z-index: 99999;
+	right: 0;
+	top :100px;
+	margin:20px ;
+	width: 20%;
+	padding: 20px;
+}
+
+
+.notification-elements-wraper::before, .notification-elements-wraper::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    right: 80px;
+}
+.notification-elements-wraper::before {
+    border-color: #ccc transparent;
+    top: -10px;
+    right: 80px;
+}
+.notification-elements-wraper::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-color: #fff transparent;
+    border-width: 0 10px 10px 10px;
+    top: -9px;
+}
+
+.notification-elements-wraper ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	text-align: left;
+	list-style: none;
+}
+
+.notification-elements-wraper ul li {
+	color: black;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid grey;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+/*******/
+
 .sticky-main-navbar .burger-menu-wrap{
 	position: absolute;
 	padding: 0px 17px;
@@ -112,7 +204,6 @@
 .sticky-main-navbar + .body-wrapper {
 	padding-top: 10000px;
 }
-
 
 .nav-mobile-wraper {
 	vertical-align: middle;
@@ -175,6 +266,7 @@
 	z-index: 999;
 	left: 0;
 }
+
 .footer-nav-mobile-wraper {
 	vertical-align: middle;
 	background: #5a5a59;

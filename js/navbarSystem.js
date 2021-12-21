@@ -35,12 +35,17 @@
 // Funciones de utilidad
 
 function showBurgerMenu(element) {
-              $("." + element +" > .burger-elements").toggle("slide", { direction: "right" }, 500, function() {
-                if($("." + element +" > .burger-elements").is(":visible")) {
-                    $("." + element +" > .burger-menu-wrap > .burger i").removeClass('bi-list').addClass('bi-x')
-                }else {
-                    $("." + element +" > .burger-menu-wrap > .burger i").removeClass('bi-x').addClass('bi-list')
-                }
+      console.log($("." + element +" > .burger-elements"))
+      $("." + element +" > .burger-elements").toggle("slide", { direction: "right" }, 500, function() {
+        if($("." + element +" > .burger-elements").is(":visible")) {
+            $("." + element +"> .footer-nav-mobile-wraper > .burger-menu-wrap > .burger i").removeClass('bi-list').addClass('bi-x')
+            $("." + element +"> .nav-mobile-wraper > .burger-menu-wrap > .burger i").removeClass('bi-list').addClass('bi-x')
+
+        }else {
+            $("." + element +"> .footer-nav-mobile-wraper > .burger-menu-wrap > .burger i").removeClass('bi-x').addClass('bi-list')
+            $("." + element +"> .nav-mobile-wraper > .burger-menu-wrap > .burger i").removeClass('bi-x').addClass('bi-list')
+
+        }
 
     })
 
