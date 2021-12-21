@@ -188,6 +188,45 @@
 	vertical-align: middle;
 }
 
+.notification-elements-wraper ul li span{
+	cursor: pointer;
+	background: #d32f2f;
+	float: right;
+	display: block;
+	margin: 0;
+	position: relative;
+	right: -11px;
+	top: -11px;
+	height: 46px;
+	width: 40px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	text-align: center;
+}
+
+
+.notification-elements-wraper ul li span{
+	cursor: pointer;
+	background: #d32f2f;
+	float: right;
+	display: block;
+	margin: 0;
+	position: relative;
+	right: -11px;
+	top: -11px;
+	height: 46px;
+	width: 40px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	text-align: center;
+}
+
+.notification-elements-wraper ul li span i{
+	font-size: 15px;
+	display: block;
+	position:relative;
+	top: calc(50% - 11px);
+}
 
 
 /*******/
