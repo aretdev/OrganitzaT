@@ -1,9 +1,8 @@
 
 .body-wrapper {
-	margin: calc(15%) 10% 0px 10%;
+	margin: 15% 10% 15% 10%;
+	padding-bottom: 200px;
 }
-
-
 
 .scrolling-wrapper{
 	overflow-x: auto;
@@ -42,7 +41,7 @@ h1{
 	cursor: pointer;
 	height: 10em;
 	width: 175px;
-	background-color: #fff;
+	background: #f3f6f4;
 	border: none;
 	background-position: center;
 	background-size: cover;

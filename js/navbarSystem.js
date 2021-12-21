@@ -27,10 +27,12 @@
     var sticky = header.offsetTop;
       if (window.pageYOffset > sticky) {
         header.classList.add("sticky-main-navbar");
+        $(".body-wrapper").css("padding-top", "100px");
 
 
       } else {
         header.classList.remove("sticky-main-navbar");
+        $(".body-wrapper").css("padding-top", "0px");
 
       }
     }
