@@ -13,6 +13,12 @@
  $(document).ready(function(){
     window.onscroll = function() {hacerSticky()};
 
+      $(document).on('click', function(e) {
+        var container = $(".notification-elements-wraper");
+          if (!$(e.target).closest(container).length) {
+              container.hide();
+      }
+      });
 
 
     function hacerSticky() {
@@ -35,7 +41,6 @@
 // Funciones de utilidad
 
 function showBurgerMenu(element) {
-      console.log($("." + element +" > .burger-elements"))
       $("." + element +" > .burger-elements").toggle("slide", { direction: "right" }, 500, function() {
         if($("." + element +" > .burger-elements").is(":visible")) {
             $("." + element +"> .footer-nav-mobile-wraper > .burger-menu-wrap > .burger i").removeClass('bi-list').addClass('bi-x')
@@ -49,4 +54,9 @@ function showBurgerMenu(element) {
 
     })
 
+}
+
+
+function showNotifications() {
+  $(".notification-elements-wraper").toggle("slide", { direction: "right" }, 300)
 }
