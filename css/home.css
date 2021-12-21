@@ -126,6 +126,20 @@ h1{
 	align-content: center;
 }
 
+.personal-info-box {
+	color: black;
+	width: 40%;
+	min-width: 350px;
+	padding: 20px;
+}
+.personal-info-box img {
+	width: 70%;
+	border-radius: 100%;
+
+}
+.personal-info-box button i {
+	margin-left: 10px;
+}
 
 .indicator-scroller-left span {
 	font-size: 50px;
