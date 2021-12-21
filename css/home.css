@@ -16,7 +16,7 @@
 
 body{
 	background-color: white;
-	color: #fff;
+	color: white;
 	font-family: 'system-ui';
 }
 
@@ -28,6 +28,12 @@ h1{
 
 .subtitle{
 	font-size: 1.25em;
+	opacity: 0.65;
+    color: black;
+}
+
+.subtitle2{
+	font-size: 1em;
 	opacity: 0.65;
     color: black;
 }
@@ -79,57 +85,11 @@ h1{
 }
 
 
-.card-1{
-	background-color: #4158D0;
-	background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+.cards{
+	background-color: #f3f6f4;
+	color: black;
+	border-color: #999999;
 }
-
-.card-2{
-	background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-}
-
-.card-3{
-	background-color: #00DBDE;
-background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
-}
-
-.card-4{
-	background-color: #FBAB7E;
-background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-}
-
-.card-5{
-	background-color: #85FFBD;
-background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
-}
-
-.card-6{
-	background-color: #FA8BFF;
-background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
-}
-
-.card-7{
-	background-color: #FA8BFF;
-background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
-}
-
-.card-8{
-	background-color: #FBDA61;
-background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
-}
-
-.card-9{
-	background-color: #4158D0;
-background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-}
-
-.card-10{
-	background-color: #FF3CAC;
-background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
-
-}
-
 
 
 .indicator-scroller-right{
@@ -178,4 +138,31 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
 	opacity: 40%;
 	border-radius: 10px;
 }
+hr {
+    border: 10px;
+    width: 100%;
+    color: black;
+}
 
+.scrolling-wrapper::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.scrolling-wrapper::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+    background-color: #c12a21;
+    border-radius: 10px;
+    border: 2px solid white;
+	border-radius: 10px;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
