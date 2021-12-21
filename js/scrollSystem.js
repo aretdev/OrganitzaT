@@ -18,7 +18,6 @@ $(document).ready(function(){
             }
         })(jQuery);
         
-            $('#footernavbar-bar').load('./common/footernavbar.html');
             $(".indicator-scroller-left").css("display","none")
             $(".scrolling-wrapper").each(function(i, elem) {
                 if(!$(elem).hasScrollBar().horizontal) {
@@ -33,14 +32,13 @@ $(document).ready(function(){
             var $width = $(element).outerWidth();
                 var $scrollWidth = $(element)[0].scrollWidth; 
                 var $scrollLeft = $(element).scrollLeft();
-
-                if ($scrollWidth - $width === $scrollLeft){
+                if ($scrollWidth - $width  - 35 <= $scrollLeft){
                     $(element).children(".indicator-scroller-right").css("display","none")
                 }else {
                     $(element).children(".indicator-scroller-right").css("display","block")
                 }
 
-                if ($scrollLeft <= 20){
+                if ($scrollLeft <= 35){
                     $(element).children(".indicator-scroller-left").css("display","none")
                 }else {
                     $(element).children(".indicator-scroller-left").css("display","block")
