@@ -87,7 +87,7 @@
 
 /*
 
-	Notification System
+	Notification System CSS
 
 */
 
@@ -104,8 +104,9 @@
 .notification-nav span {
 	text-align: center;
 	font-size: 0.4em;
+	font-weight: bold;
 	right: 0;
-	background: red;
+	background: #c12a21;;
 	border-radius: 100%;
 	width: 1.4em;
 	position: absolute;
@@ -204,21 +205,11 @@
 	text-align: center;
 }
 
-
-.notification-elements-wraper ul li span{
-	cursor: pointer;
-	background: #d32f2f;
-	float: right;
-	display: block;
-	margin: 0;
-	position: relative;
-	right: -11px;
-	top: -11px;
-	height: 46px;
-	width: 40px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	text-align: center;
+.notification-elements-wraper ul li span:hover {
+	transition: 450ms;
+	color: #d32f2f;
+	background: white;
+	border: 1px solid #d32f2f;
 }
 
 .notification-elements-wraper ul li span i{
@@ -229,7 +220,11 @@
 }
 
 
-/*******/
+/*
+
+	Sticky components style
+
+*/
 
 .sticky-main-navbar .burger-menu-wrap{
 	position: absolute;
@@ -261,6 +256,16 @@
 
 .sticky-main-navbar + .body-wrapper {
 	padding-top: 10000px;
+}
+
+
+/*
+
+	Nav system
+
+*/
+.active-nav {
+	 border-bottom: 6px solid #c12a21;
 }
 
 .nav-mobile-wraper {
@@ -312,6 +317,7 @@
 	 transition: 300ms;
   border-bottom: 6px solid #c12a21;
 }
+
 
 /*
 
@@ -415,3 +421,47 @@
 .burger-elements ul li a:hover {
 	background: #4e4d4d;
 }
+
+
+
+/*
+
+	Input Style - search on scroll
+
+*/
+input.search-on-scroll {
+	padding-left: 0.5em;
+	font-style: italic;
+	font-size: 0.7em;
+}
+.search-on-scroll {
+	float: right;
+	display: block;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	height: 34px;
+	width: 15vw;
+	max-width: 100px;
+}
+
+.search-on-scroll + span button {
+	color: white;
+	position: relative;
+	background: grey;
+	font-size: 0.8em;
+	display: block;
+	border: none;
+	height:34px;
+	width: 34px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+
+}
+.search-on-scroll + span button:hover {
+	transition: 500ms;
+	color: grey;
+	background: white;
+	border: 1px solid grey;
+}
+
+

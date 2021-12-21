@@ -19,6 +19,10 @@
     <script type="text/javascript" src="./js/scrollSystem.js"></script>
     <script type="text/javascript" src="./js/navbarSystem.js"></script>
     <script type="text/javascript" src="./js/generateElements.js"></script>
+    <script type="text/javascript" src="./js/activeNavItems.js"></script>
+    <script type="text/javascript">
+        activarItemMenu("item-home")
+    </script>
     <title></title>
 </head>
 <body>  
@@ -31,7 +35,12 @@
                     <span>Paco Perez</span>
             </div>
 
-            <p class="subtitle ml-2">Grupos a los que perteneces <hr /></p>
+            <p class="subtitle ml-2">Grupos a los que perteneces
+
+            <input class="search-on-scroll border" placeholder="Ej: DCU" type="text" name="data" id="grupos-pertenecientes"> 
+            <span class="float-end"><button><i class="bi bi-search"></i></button></span>
+            <hr/>
+            </p>
 
             <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)" >
 
@@ -146,7 +155,11 @@
         </div>
     </div>
         <div class="container-fluid">
-                <p class="subtitle"><br/>Grupos disponibles<hr /></p>
+                <p class="subtitle"><br/>Grupos disponibles
+                <input class="search-on-scroll border" placeholder="Ej: DCU" size="10" type="text" name="data" id="grupos-pertenecientes"> 
+                    <span class="float-end"><button><i class="bi bi-search"></i></button></span>
+                    <hr/>
+                </p>
             <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
           <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
                     <span><i class="bi bi-caret-right-fill"></i></span>
