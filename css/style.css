@@ -154,12 +154,12 @@
     position: absolute;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    right: 80px;
+    right: 70px;
 }
 .notification-elements-wraper::before {
     border-color: #ccc transparent;
     top: -10px;
-    right: 80px;
+    right: 70px;
 }
 .notification-elements-wraper::after {
     content: "";
@@ -191,7 +191,7 @@
 }
 
 .notification-elements-wraper ul li span{
-
+	color: white;
 	cursor: pointer;
 	background: #d32f2f;
 	float: right;
