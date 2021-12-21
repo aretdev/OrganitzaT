@@ -51,6 +51,7 @@ h1{
 	float: right;
 	padding-left: 10px;
 	padding-right: 10px;
+	color: #fdd835;
 }
 
 .student-button:hover{
@@ -156,5 +157,21 @@ h1{
 	color: white;
 	border-color: red;
 	border-radius: 10px;
+	transition: all 0.4s;
+}
+
+.bad-star{
+	border-radius: 5px;
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: all 0.4s;
+	color: grey;
+}
+
+.bad-star:hover{
+	background-color: #fdd835;
+	color: yellow;
+	opacity: 0.6;
 	transition: all 0.4s;
 }
