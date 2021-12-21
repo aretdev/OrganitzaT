@@ -94,10 +94,10 @@ h1{
 .indicator-scroller-right{
 	cursor: pointer;
 	position: absolute;
-	z-index: 999;
+	z-index: 998;
 	height:175px;
 	width: 70px;
-	left: calc(100% -  110px);
+	right: 3%;
 	vertical-align: middle;
 	align-content: center;
 }
@@ -118,9 +118,9 @@ h1{
 .indicator-scroller-left{
 	cursor: pointer;
 	position: absolute;
-	z-index: 999;
+	z-index: 998;
 	height:175px;
-	left: 40px;
+	left: 3%;
 	width: 70px;
 	vertical-align: middle;
 	align-content: center;
