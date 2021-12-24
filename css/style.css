@@ -112,7 +112,7 @@
 	position: absolute;
 }
 
-.notification-nav:hover {
+.notification-nav:hover i {
 	transition: 300ms;
 	color: #ffee58;
 

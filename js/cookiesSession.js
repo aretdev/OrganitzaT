@@ -12,7 +12,7 @@
  
 const login = (form) => {
     let dni = form.dniAlumno.value
-
+    let correctLogin = false
     /*
         Llamada a ajax preguntando por el alumno si existe
     */
