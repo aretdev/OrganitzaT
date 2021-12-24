@@ -408,18 +408,24 @@
 }
 
 .burger-elements ul li:last-child {
+	margin-top: 50px;
 	font-size: 0.9em;
+}
+
+.burger-elements ul li:last-child:hover {
+	background: red;
 }
 .burger-elements ul li:last-child a{
 	text-decoration: none;
 	color: white;
 	margin: 0px; 
 	display: block;
-	padding: 10px 55px 12px 55px;
+	padding: 10px 50px 12px 70px;
 }
 
 .burger-elements ul li:last-child a i{
 	font-size: 25px;
+	left: 10px;
 }
 
 .burger-elements ul li a{
@@ -427,7 +433,7 @@
 	color: white;
 	margin: 0px; 
 	display: block;
-	padding: 55px;
+	padding: 40px 55px 40px 55px;
 }
 
 .burger-elements ul li a i{
