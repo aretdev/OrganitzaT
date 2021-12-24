@@ -10,7 +10,7 @@
  **/
 
 
-function activarItemMenu(selector) {
+const activarItemMenu = function(selector) {
   let frecuency = 500;
   let timeout = 10000;
 

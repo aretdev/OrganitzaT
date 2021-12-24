@@ -28,7 +28,7 @@ $(document).ready(function(){
         });
 
 
-        function isEnd(element) {
+        const isEnd = function(element) {
             var $width = $(element).outerWidth();
                 var $scrollWidth = $(element)[0].scrollWidth; 
                 var $scrollLeft = $(element).scrollLeft();
@@ -46,13 +46,13 @@ $(document).ready(function(){
 
         }
 
-        function scrollRightBut(element) {
+        const scrollRightBut = function(element) {
                   let x = $(element).parent().scrollLeft();
                   $(element).parent().animate({
                      scrollLeft : x + 500
                  });
         }
-        function scrollLeftBut(element) {
+        const scrollLeftBut = function(element) {
             let x = $(element).parent().scrollLeft();
                   $(element).parent().animate({
                      scrollLeft  : x - 500

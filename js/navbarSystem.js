@@ -21,7 +21,7 @@
       });
 
 
-    function hacerSticky() {
+    const hacerSticky = function() {
     var navbarSize = (window.innerWidth > 768 ) ? "main-navbar" : "footer-main-navbar";
     var header = document.getElementsByClassName(navbarSize)[0];
     var sticky = header.offsetTop;
