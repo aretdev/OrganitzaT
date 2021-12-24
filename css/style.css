@@ -299,6 +299,8 @@
 	left: calc(25 - 5px);
 }
 
+
+
 .nav-mobile-wraper ul li a {
 	color: white;
 	text-decoration: none;
@@ -388,7 +390,7 @@
 	font-size: 0.7em;
 	text-align: center;
 	position: relative;
-	top: -80px;
+	top: -70px;
 }
 
 .burger-elements ul{
@@ -403,6 +405,21 @@
 .burger-elements ul li{
 	background: #5f5e5e;
 	padding: 0px;
+}
+
+.burger-elements ul li:last-child {
+	font-size: 0.9em;
+}
+.burger-elements ul li:last-child a{
+	text-decoration: none;
+	color: white;
+	margin: 0px; 
+	display: block;
+	padding: 10px 55px 12px 55px;
+}
+
+.burger-elements ul li:last-child a i{
+	font-size: 25px;
 }
 
 .burger-elements ul li a{
@@ -465,4 +482,23 @@ input.search-on-scroll {
 	border: 1px solid #2196f3;
 }
 
+/**
+ * 
+ * 
+ * 			Estilo de la página principal "login"
+ * 
+ * 
+ * **/
+.container-login form {
+	padding: 0px 55px 20px 55px;
+}
 
+.container-login h6 {
+	font-size: 12px;
+}
+.container-login > div {
+	background: #5a5a59;
+	color: #5a5a59;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
