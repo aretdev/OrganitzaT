@@ -1,9 +1,27 @@
 
+
+/**
+ * 
+ * 
+ * Utilidades generales
+ * 
+ * **/
+
 .body-wrapper {
-	margin: 15% 10% 15% 10%;
 	padding-bottom: 200px;
 }
+.org-badge {
+	padding: 1.25rem;
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+	border: 1px solid #e9ecef;
+	border-left-width: .25rem;
+	border-radius: .25rem;
+}
 
+.badge-info {
+	border-left-color: #42a5f5;
+}
 
 
 /*  
@@ -16,7 +34,7 @@
 		display: block;
 	}
 	.body-wrapper {
-		margin: 0px 10% 0px 10%;
+		margin: 20px 10% 0px 10%;
 	}
 
 	.main-navbar .burger-menu-wrap{
@@ -106,10 +124,12 @@
 	z-index: 9999;
 	left: calc(100% - 110px);
 	cursor: pointer;
+	color: white;
 	font-weight: 200;
 }
 
 .notification-nav span {
+
 	text-align: center;
 	font-size: 0.4em;
 	font-weight: bold;
@@ -365,6 +385,7 @@
 */
 
 .burger-menu-wrap .burger i {
+	color: white;
 	cursor: pointer;
 	border-radius: 5px;
 	border: 1px solid grey;
@@ -503,6 +524,7 @@ input.search-on-scroll {
  * 
  * 
  * **/
+
 .container-login form {
 	padding: 0px 55px 20px 55px;
 }
@@ -516,3 +538,17 @@ input.search-on-scroll {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
+
+
+/**
+ * 
+ * 		Estilo de la página asignaturas
+ * 
+ * 
+ * 
+ * **/
+
+ .table-asignaturas table tr {
+ 	cursor: pointer;
+ }
+

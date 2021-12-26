@@ -27,7 +27,7 @@
     var sticky = header.offsetTop;
       if (window.pageYOffset > sticky) {
         header.classList.add("sticky-main-navbar");
-        $(".body-wrapper").css("padding-top", "100px");
+        $(".body-wrapper").css("padding-top", "80px");
 
 
       } else {

@@ -9,18 +9,6 @@
 
 
 
-body{
-	background-color: white;
-	color: white;
-	font-family: 'system-ui';
-}
-
-h1{
-	font-weight: 400;
-	font-size: 2em;
-    color: black;
-}
-
 .subtitle{
 	font-size: 1.25em;
 	opacity: 0.65;
@@ -88,6 +76,7 @@ h1{
 
 
 .indicator-scroller-right{
+	color: white;
 	cursor: pointer;
 	position: absolute;
 	z-index: 998;
@@ -112,6 +101,7 @@ h1{
 
 
 .indicator-scroller-left{
+	color: white;
 	cursor: pointer;
 	position: absolute;
 	z-index: 998;
