@@ -4,16 +4,22 @@
 }
 
 body {
-    background-color: #000
+    background-color: white;
 }
 
 .card {
+    padding: 0px 50px 50px 50px;
+    color: black;
     width: 350px;
-    background-color: #efefef;
     border: none;
     cursor: pointer;
     transition: all 0.5s
 }
+
+.card div:first-child{
+    background: red;
+}
+
 .card:hover .image img {
     transform: scale(1.2)
 }
@@ -23,7 +29,7 @@ body {
     transition: all 0.5s;
     height: 170px;
     width: 170px;
-     border-radius: 50%
+    border-radius: 50%
 }
 
 .name {
