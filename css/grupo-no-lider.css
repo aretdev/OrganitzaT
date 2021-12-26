@@ -68,6 +68,11 @@ h1{
 	transition: all 0.4s;
 }
 
+.student-button div:first-child a {
+	color: black;
+	text-decoration: underline;
+}
+
 .exit{
 	transition: all 0.4s;
 	background-color: #f4cccc;
