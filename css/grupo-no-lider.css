@@ -63,6 +63,13 @@ h1{
 }
 
 .student-button{
+	background: none;
+	color: black;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 	min-width: 200px;
 	min-height: 30px;
 	transition: all 0.4s;
@@ -72,27 +79,9 @@ h1{
 	color: black;
 	text-decoration: underline;
 }
-
-.exit{
-	transition: all 0.4s;
-	background-color: #f4cccc;
-	border-color: red;
-	color: red;
-	text-align: center;
-	width: 150px;
-	height: 50px;
-	border-radius: 10px;
-	padding-top: 10px;
+.exit {
+margin-right: 7em;
 }
-
-.exit:hover{
-	transition: all 0.4s;
-	background-color: red;
-	border-color: #f4cccc;
-	color: #f4cccc;
-	opacity: 0.8;
-}
-
 .card-block div {
 	padding: 10px;
     display: inline-block;
