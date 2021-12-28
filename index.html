@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
-	<title></title>
+    <script type="text/javascript">
+    	if(isLogged()) {
+    		document.location.href="/Organitzat/home.html"
+    	}
+
+    </script>
+	<title>OrganitzaT - Iniciar Sesión</title>
 </head>
 <body style="background: white;">
     <div class="d-flex align-items-center justify-content-center vh-100">
@@ -24,8 +30,8 @@
          		<h2 class="text-center">Iniciar Sesión</h2>
          		<p class="text-center text-secondary"><i class="bi bi-info-circle"></i> Accediendo como alumno</p>
 			  <div class="form-group mb-3">
-			    <label for="dni-alumno">Introduce tu DNI:</label>
-			    <input type="dni" class="form-control" id="dni-alumno" name="dniAlumno" placeholder="12345678W">
+			    <label for="dni-alumno">DNI:</label>
+			    <input type="password" class="form-control" id="dni-alumno" name="dniAlumno" placeholder="12345678W">
 			   <div class="invalid-feedback">El DNI introducido no es correcto</div>
 			  </div>
 			  <button type="submit" class="btn btn-success w-100">Acceder <i class="bi bi-box-arrow-in-right"></i></button>

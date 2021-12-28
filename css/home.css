@@ -61,7 +61,7 @@
 .card-block div span i {
 	font-size: 25px;
 }
-.card-block:hover{
+.card-block:hover, .card-block-hovered{
 		transform: translateY(-5px);
 		box-shadow: none;
 		opacity: 0.9;

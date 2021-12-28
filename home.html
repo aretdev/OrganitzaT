@@ -24,22 +24,88 @@
     <script type="text/javascript">
         activarItemMenu("item-home")
     </script>
+    <script type="text/javascript">
+        /* *
+         * 
+         *      Sistema de búsqueda en scroll
+         * 
+         * */
+
+         const searchScroll = (form) => {
+
+            function hasNumber(myString) {
+                  return /\d/.test(myString);
+            }
+
+            const isVisible = function (ele, container) {
+                const { bottom, height, top } = ele.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+
+                return top <= containerRect.top ? containerRect.top - top <= height : bottom - containerRect.bottom <= height;
+            };
+            
+            let whereToSearch = form.data.getAttribute("donde")
+            let valueInp = form.data.value.trim().toLowerCase()
+            let formatted = whereToSearch + "-" + valueInp.replace(/ +/g, "")
+            let searchingOpt = ""
+            let foundArray = []
+            /*
+                Voy a considerar 3 formas de inputs:
+                    1.- Solo se introduce el número del grupo -> pueden haber varios, se resaltan todos pero solo desplazamos hasta el primero.
+                    2.-solo se introduce la asignatura -> mismo caso que el anterior
+                    3.- se introduce la cadena completa -> dcu grupo 1 , búsqueda exacta , desplazamos.
+            */
+            if(!isNaN(valueInp)) {
+                searchingOpt = "ident-data"
+            }else if(!hasNumber(valueInp)) {
+                searchingOpt = "acron"
+            }else{
+                searchingOpt = "fullsearch"
+                valueInp = formatted
+            }
+
+            $('#' + whereToSearch + ' .col-auto').each(function(index, el) {
+                if( $(el).find( ".cards").attr(searchingOpt) === valueInp) foundArray.push(el)
+            });
+            if(foundArray.length >= 1) {
+                $(form).find("input").removeClass("bad-search-scroll")
+                $.each(foundArray, function(index, element){
+                    $(element).find(".cards").css("border", "1px solid #c12a21")
+                    $(element).find(".cards").addClass('card-block-hovered')
+                    setTimeout(function() {
+                        $(element).find(".cards").removeClass('card-block-hovered')
+                        $(element).find(".cards").css("border", "none")
+                    },5000)
+                })
+                $('#' + whereToSearch).animate({scrollLeft: $(foundArray[0]).position().left - 500}, 500);
+            } else {
+                $(form).find("input").addClass("bad-search-scroll")
+            }
+            return false;
+         }
+    </script>
     <title></title>
 </head>
 <body>  
     <nav id="footernavbar-bar"></nav> 
     <div class="body-wrapper">  
-        <div class="container-fluid">
+        <div class="container-fluid mb-5">
             <div class="container mt-5 row justify-content-center mb-5">
             </div>
-            <p class="subtitle ml-2">Grupos a los que perteneces
+            <div class="subtitle ml-2">
 
-            <input class="search-on-scroll border" placeholder="Ej: DCU" type="text" name="data" id="grupos-pertenecientes"> 
-            <span class="float-end"><button><i class="bi bi-search"></i></button></span>
-            <hr/>
-            </p>
+                <div class="float-start">Grupos a los que perteneces</div>
 
-            <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)" >
+                <div class="float-end mb-2">
+                    <form onsubmit="return searchScroll(this)">
+                        <input donde="pert" class="search-on-scroll" placeholder="DCU grupo 1" type="text" name="data" id="grupos-pertenecientes"> 
+                        <span class="float-end"><button type="submit"><i class="bi bi-search"></i></button></span>
+                    </form>
+                </div>
+                <hr/>
+            </div>
+
+            <div id="pert" class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)" >
 
                 <!-- Botones de Scroll-->
                 <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
@@ -49,115 +115,120 @@
                     <span><i class="bi bi-caret-left-fill"></i></span>
                 </div>
                   
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>IAP</p></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-iapgrupo1" acron="iap" ident-data="1">
+                        <div>
+                            <span><p>IAP</p></span>
+                                <ul>
+                                    <li>Grupo 1</li>
+                                </ul>
+                                <span><i class="bi bi-grid"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-dcugrupo3" acron="dcu" ident-data="3">
+                        <div>
+                            <span><p>DCU</p></span>
                             <ul>
-                                <li>Grupo 1</li>
+                                <li>Grupo 3</li>
                             </ul>
                             <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>DCU</p></span>
-                        <ul>
-                            <li>Grupo 3</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-dewgrupo5" acron="dew" ident-data="5">
+                        <div>
+                            <span><p>DEW</p></span>
+                            <ul>
+                                <li>Grupo 5</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>DEW</p></span>
-                        <ul>
-                            <li>Grupo 5</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-rcogrupo6" acron="rco" ident-data="6">
+                        <div>
+                            <span><p>RCO</p></span>
+                            <ul>
+                                <li>Grupo 6</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>RCO</p></span>
-                        <ul>
-                            <li>Grupo 6</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-aicgrupo7" acron="aic" ident-data="7">
+                        <div>
+                            <span><p>AIC</p></span>
+                            <ul>
+                                <li>Grupo 7</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>AIC</p></span>
-                        <ul>
-                            <li>Grupo 7</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-iswgrupo9" acron="isw" ident-data="9">
+                        <div>
+                            <span><p>ISW</p></span>
+                            <ul>
+                                <li>Grupo 9</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>ISW</p></span>
-                        <ul>
-                            <li>Grupo 9</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-dcugrupo12" acron="dcu" ident-data="12">
+                        <div>
+                            <span><p>DCU</p></span>
+                            <ul>
+                                <li>Grupo 12</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>DCU</p></span>
-                        <ul>
-                            <li>Grupo 12</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-iswgrupo15" acron="isw" ident-data="15">
+                        <div>
+                            <span><p>ISW</p></span>
+                            <ul>
+                                <li>Grupo 15</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>ISW</p></span>
-                        <ul>
-                            <li>Grupo 15</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
+                <div class="col-auto">
+                    <div class="card-block cards" fullsearch="pert-dewgrupo17" acron="dew" group="17">
+                        <div>
+                            <span><p>DEW</p></span>
+                            <ul>
+                                <li>Grupo 17</li>
+                            </ul>
+                            <span><i class="bi bi-grid"></i></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-auto">
-                <div class="card-block cards">
-                    <div>
-                        <span><p>DEW</p></span>
-                        <ul>
-                            <li>Grupo 17</li>
-                        </ul>
-                        <span><i class="bi bi-grid"></i></span>
-                    </div>
-                </div>
-            </div>
                
         </div>
     </div>
         <div class="container-fluid mt-5">
-                <p class="subtitle"><br/>Grupos disponibles
-                <input class="search-on-scroll border" placeholder="Ej: DCU" size="10" type="text" name="data" id="grupos-pertenecientes"> 
-                    <span class="float-end"><button><i class="bi bi-search"></i></button></span>
+                <div class="subtitle">
+                    <div class="float-start">Grupos disponibles</div>
+                    <div class="float-end mb-2">
+                        <form onsubmit="return searchScroll(this)">
+                            <input donde="entre" class="search-on-scroll border" placeholder="Ej: DCU" size="10" type="text" name="data" id="grupos-pertenecientes"> 
+                            <span class="float-end"><button type="submit"><i class="bi bi-search"></i></button></span>
+                        </form>
+                    </div>
                     <hr/>
-                </p>
-            <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
+                </div>
+            <div id="entre" class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
           <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
                     <span><i class="bi bi-caret-right-fill"></i></span>
                 </div>
@@ -166,7 +237,7 @@
                     <span><i class="bi bi-caret-left-fill"></i></span>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="entre-iapentregable1" acron="iap" ident-data="1">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -177,7 +248,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable5" acron="iap" ident-data="5">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -188,7 +259,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable3" acron="iap" ident-data="3">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -199,7 +270,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable3" acron="iap" ident-data="3">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -210,7 +281,7 @@
                     </div>
                 </div>
                   <div class="col-auto">
-                <div class="card-block cards">
+                <div class="card-block cards" fullsearch="pert-iapentregable2" acron="iap" ident-data="2">
                     <div>
                         <span><p>IAP</p></span>
                         <ul>
@@ -221,7 +292,7 @@
                 </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable1" acron="iap" ident-data="1">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -232,7 +303,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable2" acron="iap" ident-data="2">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
@@ -243,22 +314,11 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div class="card-block cards">
+                    <div class="card-block cards" fullsearch="pert-iapentregable4" acron="iap" ident-data="4">
                         <div>
                             <span><p>IAP</p></span>
                             <ul>
                                 <li>Entregable 4</li>
-                            </ul>
-                            <span><i class="bi bi-plus-circle"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <div class="card-block cards">
-                        <div>
-                            <span><p>IAP</p></span>
-                            <ul>
-                                <li>Entregable 5</li>
                             </ul>
                             <span><i class="bi bi-plus-circle"></i></span>
                         </div>
