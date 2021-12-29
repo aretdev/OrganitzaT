@@ -16,8 +16,8 @@ h1{
 }
 
  hr.divider { 
-  margin: 0em;
-  border-width:none;
+ 	margin: 0;
+ 	border-width: 1px;
 } 
 
 .sub-hr-indicator {
