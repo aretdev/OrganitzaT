@@ -69,10 +69,10 @@
                         $(element).find(".cards").removeClass('card-block-hovered')
                         $(element).find(".cards").css("border", "none")
                     },5000)
-                }
+                })
                 /*El scroll no funciona muy bien , no me coloca centrados los elementos, asi que necesito calcular
                  el centro correspondiente al elemento padre*/
-                let scrollPos = $(foundArray[0]).offset().left + $(foundArray[0]).outerWidth(true)/2 + 
+                 let scrollPos = $(foundArray[0]).offset().left + $(foundArray[0]).outerWidth(true)/2 + 
                                 $('#' + whereToSearch).scrollLeft() - $('#' + whereToSearch).width()/2;
 
                 $('#' + whereToSearch).animate({scrollLeft: scrollPos}, 500);
