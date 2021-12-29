@@ -20,7 +20,6 @@
     <script type="text/javascript" src="./js/scrollSystem.js"></script>
     <script type="text/javascript" src="./js/navbarSystem.js"></script>
     <script type="text/javascript" src="./js/generateElements.js"></script>
-    <script type="text/javascript" src="./js/activeNavItems.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
 
     <script type="text/javascript">
@@ -38,23 +37,24 @@
 	<div id="navigation-bar"></div> 
     <div id="footernavbar-bar"></div> 
     <div class="body-wrapper">  
-        <div class="container-fluid text-center justify-content-center">
-            <div class="card text-dark bg-light mb-3 mx-auto mt-5" style="max-width: 40rem;">
-              <div class="card-header">
-                   <ol class="breadcrumb mb-0 justify-content-center p-2 fs-4">
+        <div class="container-fluid justify-content-center text-black">
+
+                <ol class="breadcrumb justify-content-centerfloat-start fs-5 m-0 p-0">
                     <li class="breadcrumb-item"><a href="#">IAP</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Grupo 1</li>
-                  </ol>
-              </div>
-
-              <div class="card-body">
-                <h5 class="card-title">Nota: <u>Sin calificar</u> </h5>
-                <p class="card-text">Grupo Completo [5/5] - Perteneces a este grupo</p>
-
-              </div>
-            </div>
-                <p class="subtitle" style="text-align: left;">Integrantes  <hr> </p>
-    </div>
+                </ol>
+                <hr class="m-0">
+                <div class="ps-5 mt-5 mb-5">
+                    <h5 >Nota: <u>Sin calificar</u> </h5>
+                    <p >Grupo Completo [5/5] - Perteneces a este grupo</p>
+                    <button type="button" class="btn btn-sm btn-outline-danger float-end mb-5 exit">
+                            Solicitar Salir
+                    </button>
+                </div>
+                
+                <p class="sub-hr-indicator">Integrantes </p>
+                <hr class="divider">
+        </div>
 	<div class="text-center">
 		<br>
 		<div class="container mb-5">
@@ -96,10 +96,6 @@
   					</div>
   				</div>
   			</div>
-            <button type="button" class="btn btn-sm btn-outline-danger float-end mt-2 exit">
-                    Solicitar Salir
-            </button>
-
 		</div>
 		<div class="container-fluid">
 		<p class="subtitle" style="text-align: left;">Tareas de IAP <i class="bi bi-arrow-right"></i> Grupo 1<hr /></p>

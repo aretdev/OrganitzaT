@@ -4,7 +4,6 @@
 
 body{
 	background-color: white;
-	color: #fff;
 	font-family: 'system-ui';
 	min-width: 400px;
 	min-height: 400px;
@@ -13,6 +12,18 @@ body{
 h1{
 	font-weight: 400;
 	font-size: 2em+ 1vw + 1vh;
+    color: black;
+}
+
+ hr.divider { 
+  margin: 0em;
+  border-width:none;
+} 
+
+.sub-hr-indicator {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size: 1.25em;
     color: black;
 }
 
@@ -78,9 +89,7 @@ h1{
 	color: black;
 	text-decoration: underline;
 }
-.exit {
-margin-right: 7em;
-}
+
 .card-block div {
 	padding: 10px;
     display: inline-block;
