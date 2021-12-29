@@ -546,7 +546,16 @@ input.search-on-scroll {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
+/**/
 
+
+.busqueda-error {
+
+	height: 10em;
+	display: none;
+	width: 200px;
+	text-align: center;
+}
 
 /**
  * 

@@ -19,14 +19,18 @@ $(document).ready(function(){
         })(jQuery);
         
             $(".indicator-scroller-left").css("display","none")
-            $(".scrolling-wrapper").each(function(i, elem) {
-                if(!$(elem).hasScrollBar().horizontal) {
-                    $(elem).children(".indicator-scroller-right").css("display","none")
-                }
-            })
+            checkScrollBars()
 
 });
-
+const checkScrollBars = ()=>{
+        $(".scrolling-wrapper").each(function(i, elem) {
+        if(!$(elem).hasScrollBar().horizontal) {
+            $(elem).children(".indicator-scroller-right").css("display","none")
+        }else {
+            $(elem).children(".indicator-scroller-right").css("display","")
+        }
+    })
+}
 
 const isEnd = function(element) {
     var $width = $(element).outerWidth();
@@ -73,18 +77,17 @@ const scrollLeftBut = function(element) {
  * */
 
  const searchScroll = (form) => {
-
+    //private method :)
     let hasNumber =  (myString) => {
           return /\d/.test(myString);
     }
-    
     let whereToSearch = form.data.getAttribute("donde")
     let valueInp = form.data.value.trim().toLowerCase()
     let formatted = whereToSearch + "-" + valueInp.replace(/ +/g, "")
     let searchingOpt = ""
     let foundArray = []
-    let extra_param = false;
-
+    let extra_param = false
+    let allElements = false
     /*
         Voy a considerar 3 formas de inputs:
             1.- Solo se introduce el número del grupo -> pueden haber varios, se resaltan todos pero solo desplazamos hasta el primero.
@@ -109,20 +112,36 @@ const scrollLeftBut = function(element) {
         extra_param = true
     }
 
-    $('#' + whereToSearch + ' .col-auto').each(function(index, el) {
-        let extra_conditional = true
-        if(extra_param && splittedFormat[0].length === 3 && !isNaN(splittedFormat[1])) {
-            extra_conditional = $(el).find( ".cards").attr("acron") === splittedFormat[0]
-            valueInp = splittedFormat[1]
-            searchingOpt = "ident-data"
-        }else if(splittedFormat[0].length > 3 && !isNaN(splittedFormat[1])) {
-            valueInp = splittedFormat[1]
-            searchingOpt = "ident-data"
+    let $whereSelector = $('#' + whereToSearch)
+        $whereSelector.find('.col-auto').each(function(index, el) {
+        $whereSelector.find(".busqueda-error").hide()
+        if(valueInp == "") {
+            allElements = true
+            $(el).css("display","")
+        } else {
+
+            let extra_conditional = true
+            if(extra_param && splittedFormat[0].length === 3 && !isNaN(splittedFormat[1])) {
+                extra_conditional = $(el).find( ".cards").attr("acron") === splittedFormat[0]
+                valueInp = splittedFormat[1]
+                searchingOpt = "ident-data"
+            }else if(splittedFormat[0].length > 3 && !isNaN(splittedFormat[1])) {
+                valueInp = splittedFormat[1]
+                searchingOpt = "ident-data"
+            }
+
+            if( $(el).find( ".cards").attr(searchingOpt) === valueInp && extra_conditional) {
+                foundArray.push(el)
+                $(el).css("display","")
+
+            }else {
+                $(el).css("display","none")
+            }
         }
-        if( $(el).find( ".cards").attr(searchingOpt) === valueInp && extra_conditional) foundArray.push(el)
     });
 
     if(foundArray.length >= 1) {
+        $whereSelector.find(".busqueda-error").hide()
         $(form).find("input").removeClass("bad-search-scroll")
         $.each(foundArray, function(index, element){
             $(element).find(".cards").css("border", "1px solid #c12a21")
@@ -132,15 +151,19 @@ const scrollLeftBut = function(element) {
                 $(element).find(".cards").css("border", "none")
             },5000)
         })
-        /*El scroll no funciona muy bien , no me coloca centrados los elementos, asi que necesito calcular
-         el centro correspondiente al elemento padre*/
+        /*
          let scrollPos = $(foundArray[0]).offset().left + $(foundArray[0]).outerWidth(true)/2 + 
                         $('#' + whereToSearch).scrollLeft() - $('#' + whereToSearch).width()/2;
 
         $('#' + whereToSearch).animate({scrollLeft: scrollPos}, 500);
+        */
     } else {
+        document.querySelector("#" + whereToSearch  + " .busqueda-error").style.display = allElements ? "hide" : "block"
         $(form).find("input").addClass("bad-search-scroll")
     }
+    
+    allElements = false
+    checkScrollBars()
     return false;
 }
 
