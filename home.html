@@ -24,66 +24,6 @@
     <script type="text/javascript">
         activarItemMenu("item-home")
     </script>
-    <script type="text/javascript">
-        /* *
-         * 
-         *      Sistema de búsqueda en scroll
-         * 
-         * */
-
-         const searchScroll = (form) => {
-
-            function hasNumber(myString) {
-                  return /\d/.test(myString);
-            }
-            
-            let whereToSearch = form.data.getAttribute("donde")
-            let valueInp = form.data.value.trim().toLowerCase()
-            let formatted = whereToSearch + "-" + valueInp.replace(/ +/g, "")
-            let searchingOpt = ""
-            let foundArray = []
-            /*
-                Voy a considerar 3 formas de inputs:
-                    1.- Solo se introduce el número del grupo -> pueden haber varios, se resaltan todos pero solo desplazamos hasta el primero.
-                    2.-solo se introduce la asignatura -> mismo caso que el anterior
-                    3.- se introduce la cadena completa -> dcu grupo 1 , búsqueda exacta , desplazamos.
-            */
-            let splittedFormat = valueInp.split(" ")
-            if(splittedFormat.includes("grupo") || splittedFormat.includes("entregable")) {valueInp = splittedFormat[1]}
-            if(!isNaN(valueInp)) {
-                searchingOpt = "ident-data"
-            }else if(!hasNumber(valueInp)) {
-                searchingOpt = "acron"
-            }else{
-                searchingOpt = "fullsearch"
-                valueInp = formatted
-            }
-
-            $('#' + whereToSearch + ' .col-auto').each(function(index, el) {
-                if( $(el).find( ".cards").attr(searchingOpt) === valueInp) foundArray.push(el)
-            });
-            if(foundArray.length >= 1) {
-                $(form).find("input").removeClass("bad-search-scroll")
-                $.each(foundArray, function(index, element){
-                    $(element).find(".cards").css("border", "1px solid #c12a21")
-                    $(element).find(".cards").addClass('card-block-hovered')
-                    setTimeout(function() {
-                        $(element).find(".cards").removeClass('card-block-hovered')
-                        $(element).find(".cards").css("border", "none")
-                    },5000)
-                })
-                /*El scroll no funciona muy bien , no me coloca centrados los elementos, asi que necesito calcular
-                 el centro correspondiente al elemento padre*/
-                 let scrollPos = $(foundArray[0]).offset().left + $(foundArray[0]).outerWidth(true)/2 + 
-                                $('#' + whereToSearch).scrollLeft() - $('#' + whereToSearch).width()/2;
-
-                $('#' + whereToSearch).animate({scrollLeft: scrollPos}, 500);
-            } else {
-                $(form).find("input").addClass("bad-search-scroll")
-            }
-            return false;
-         }
-    </script>
     <title></title>
 </head>
 <body>  
