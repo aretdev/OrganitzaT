@@ -48,6 +48,8 @@
                     2.-solo se introduce la asignatura -> mismo caso que el anterior
                     3.- se introduce la cadena completa -> dcu grupo 1 , búsqueda exacta , desplazamos.
             */
+            let splittedFormat = valueInp.split(" ")
+            if(splittedFormat.includes("grupo") || splittedFormat.includes("entregable")) {valueInp = splittedFormat[1]}
             if(!isNaN(valueInp)) {
                 searchingOpt = "ident-data"
             }else if(!hasNumber(valueInp)) {
