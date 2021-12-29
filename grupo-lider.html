@@ -20,74 +20,94 @@
     <script type="text/javascript" src="./js/scrollSystem.js"></script>
     <script type="text/javascript" src="./js/navbarSystem.js"></script>
     <script type="text/javascript" src="./js/generateElements.js"></script>
-    <script type="text/javascript" src="./js/activeNavItems.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
+    <script type="text/javascript">
+         $(document).ready(function(){
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+              return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+         });
+
+    </script>
     
 </head>
 <body>
 	<div id="navigation-bar"></div> 
     <div id="footernavbar-bar"></div> 
     <div class="body-wrapper">  
-        <div class="container-fluid text-center">
-            <h1 class="mt-3">DCU <i class="bi bi-arrow-right"></i> Grupo 23</h1>
-                <p class="subtitle">Sin calificar</p>
-                <p class="subtitle2">Grupo Incompleto - Actualmente representas al grupo</p>
+                <div class="container-fluid justify-content-center text-black">
+
+                <ol class="breadcrumb justify-content-center float-start fs-3 m-0 p-0 mt-5">
+                    <li class="breadcrumb-item"><a href="#">DCU</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Grupo 23</li>
+                </ol>
+                <hr >
+                <div class="ps-5 mt-5 mb-5">
+                    <h5 >Nota: <u>Sin calificar</u> </h5>
+                    <p >Grupo Incomompleto [2/5] - Actualmente representas este grupo</p>
+                    <button type="button" class="btn btn-sm btn-outline-danger float-end exit">
+                            Solicitar Salir
+                    </button>
+                </div>
+                
+                <p class="subtitle sub-hr-indicator float-start">Integrantes </p>
+                <hr class="divider">
+        </div>
 	<div class="text-center">
-        <p class="subtitle" style="text-align: left;">Integrantes  <hr> </p>
-		<br>
-		<div class="container">
+        <br>
+		<div class="container mb-5">
 			<div class="d-grid gap-3">
 				<div class="row justify-content-center" style="float: center;">
-  					<div class="col-7">
+  					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
-  							<div style="float: left;">Ibai Llanos Garatea</div>
-  							<div class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
-                            <div class="bad-star"><i class="bi bi-star-fill"></i></div>
+  							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Ibai Llanos Garatea</a></div>
+  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia"class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Hacer representante del grupo"class="bad-star"><i class="bi bi-star-fill"></i></div>
   						</button>
   					</div>
-  					<div class="col-7">
+  					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
-  							<div style="float: left;">Stefan Vasile Michis <strong>(Tú)</strong></div>
-                            <div class="star"><i class="bi bi-star-fill"></i></div>
+  							<div style="float: left;"data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"><a href="#">Stefan Vasile Michis <strong>(Tú)</strong></a></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Representante del grupo" class="star"><i class="bi bi-star-fill"></i></div>
   						</button>
   					</div>
   				</div>
   			</div>
 		</div>
-            <br>
-            <p class="subtitle" style="text-align: left;">Solicitudes de acceso  <hr> </p>
-        <br>
-        <div class="container">
+        <div class="container-fluid">
+        <p class="subtitle sub-hr-indicator float-start">Solicitudes de acceso<hr /></p>
+        </div>
+        <div class="container mb-5">
             <div class="d-grid gap-3">
                 <div class="row justify-content-center" style="float: center;">
-                    <div class="col-7">
+                    <div class="col-10">
                         <button class="p-3 bg-light border col-12 subtitle student-button">
-                            <div style="float: left;">Vicente Rodrigo Brisa</div>
-                            <div class="tick"><i class="bi bi-check2"></i></div>
-                            <div class="cross"><i class="bi bi-x"></i></div>
+                            <div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"><a href="#">Vicente Rodrigo Brisa</a></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Aceptar solicitud" class="tick"><i class="bi bi-check2"></i></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Denegar solicitud" class="cross"><i class="bi bi-x"></i></div>
                         </button>
                     </div>
-                    <div class="col-7">
+                    <div class="col-10">
                         <button class="p-3 bg-light border col-12 subtitle student-button">
-                            <div style="float: left;">Víctor de la Orden Calvete</div>
-                            <div class="tick"><i class="bi bi-check2"></i></div>
-                            <div class="cross"><i class="bi bi-x"></i></div>
+                            <div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"><a href="#">Víctor de la Orden Calvete</a></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Aceptar solicitud" class="tick"><i class="bi bi-check2"></i></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Denegar solicitud" class="cross"><i class="bi bi-x"></i></div>
                         </button>
                     </div>
-                    <div class="col-7">
+                    <div class="col-10">
                         <button class="p-3 bg-light border col-12 subtitle student-button">
-                            <div style="float: left;">Enrique Tello Barbé</div>
-                            <div class="tick"><i class="bi bi-check2"></i></div>
-                            <div class="cross"><i class="bi bi-x"></i></div>
+                            <div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"><a href="#">Enrique Tello Barbé</a></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Aceptar solicitud" class="tick"><i class="bi bi-check2"></i></div>
+                            <div data-bs-toggle="tooltip" data-bs-placement="top" title="Denegar solicitud" class="cross"><i class="bi bi-x"></i></div>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-		<br>
         <br>
-        <p class="subtitle" style="text-align: left;">Tareas de DCU <i class="bi bi-arrow-right"></i> Grupo 23 <hr /> </p>
 		<div class="container-fluid">
+        <p class="subtitle sub-hr-indicator float-start">Tareas de DCU / Grupo 23<hr /></p>   
 		<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
           <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
                     <span><i class="bi bi-caret-right-fill"></i></span>
@@ -135,9 +155,7 @@
 				</div>
 			</div>
             <br>
-		      <div class="d-flex justify-content-end">
-			<button class="exit">
-				<p>Solicitar Salir</p>
-			</button>
-	</body>
+        </div>
+    </div>
+	   </body>
 </html>

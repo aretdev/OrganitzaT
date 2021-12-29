@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Librerias Necesarias-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Resources Propias -->
+    <link href="./css/home.css" rel="stylesheet" type="text/css">
+    <link href="./css/grupo-no-lider.css" rel="stylesheet" type="text/css"> 
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- Scripts propios (son de Vicente todos en realidad :P) -->
+    <script type="text/javascript" src="./js/scrollSystem.js"></script>
+    <script type="text/javascript" src="./js/navbarSystem.js"></script>
+    <script type="text/javascript" src="./js/generateElements.js"></script>
+    <script type="text/javascript" src="./js/cookiesSession.js"></script>
+    <script type="text/javascript">
+        function rand_int(max,min) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+    </script>
+    <script type="text/javascript">
+         $(document).ready(function(){
+            /*Para que el tooltip se genere bien y haga la animación los elementos deben 
+            crearse antes ya que en tooltipTriggerList se listan todos los elementos que deban
+            tener tooltip*/
+            var asig = document.getElementById('asignatura');
+            const urlParams = new URLSearchParams(window.location.search);
+            const refererAsig = urlParams.get('asig');
+            const refererEntregable = urlParams.get('num');
+            asig.innerHTML = refererAsig;
+            var numEntregable = document.getElementById('tipoEntregable');
+            numEntregable.innerHTML += refererEntregable;
+
+            var data = document.getElementById('data');
+            for (var i = 1; i <= 15; i++) {
+            data.innerHTML += '<div class="col-10">'+
+                '<button class="p-3 bg-light border col-12 subtitle student-button">'+
+                            '<div style="float: left;" data-bs-toggle="tooltip"'+ 
+                            'data-bs-placement="top" title="Información del grupo"><a href="#">Grupo '+ i +'</a></div>' + 
+                            '<div data-bs-toggle="tooltip" data-bs-placement="top" '+'title="Solicitar entrar"class="enter"><i class="bi '+'bi-arrow-return-right"></i>'+
+                           '</div>'+
+                            '<div class="num-ints">['+ rand_int(0,5) +' / 5]</div>'+
+                        '</button>'+
+                    '</div>';
+                }
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+              return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+         });
+    </script>  
+</head>
+<body>
+    <div id="navigation-bar"></div> 
+    <div id="footernavbar-bar"></div> 
+    <div class="body-wrapper">  
+                <div class="container-fluid justify-content-center text-black">
+
+                <ol class="breadcrumb justify-content-center float-start fs-3 m-0 p-0 mt-5">
+                    <li id="asignatura" class="breadcrumb-item"><a href="#"></a></li>
+                    <li id="tipoEntregable" class="breadcrumb-item active" aria-current="page">Grupos existentes para el Entregable </li>
+                </ol>
+                <hr >                   
+            </div>
+    <div class="text-center">
+        <br>
+        <div class="container mb-5">
+            <div class="d-grid gap-3">
+                <div class="row justify-content-center" style="float: center;" id="data">
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            <br>
+        </div>
+    </div>
+       </body>
+</html>
