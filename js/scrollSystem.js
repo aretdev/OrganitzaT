@@ -111,7 +111,6 @@ const scrollLeftBut = function(element) {
     }else { // tenemos un input con + de dos parámetros : puede ser acron + ident o entregable/grupo + ident
         extra_param = true
     }
-
     let $whereSelector = $('#' + whereToSearch)
         $whereSelector.find('.col-auto').each(function(index, el) {
         $whereSelector.find(".busqueda-error").hide()
@@ -161,7 +160,6 @@ const scrollLeftBut = function(element) {
         document.querySelector("#" + whereToSearch  + " .busqueda-error").style.display = allElements ? "hide" : "block"
         $(form).find("input").addClass("bad-search-scroll")
     }
-    
     allElements = false
     checkScrollBars()
     return false;
