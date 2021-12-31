@@ -23,6 +23,16 @@
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
          $(document).ready(function(){
+             activarItemMenu("item-asignaturas")
+            var incidenciaModal = document.getElementById('incidenciaModal')
+            incidenciaModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+            })
+
+
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
               return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -64,7 +74,7 @@
 					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button rounded-top">
   							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Vicente Rodrigo Brisa</a></div>
-  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
+  							<div data-bs-toggle="modal" data-bs-incidencia="Vicente Rodrigo Brisa" data-bs-target="#incidenciaModal" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
   				 			<div data-bs-toggle="tooltip" data-bs-placement="top" title="Representante del grupo" class="star"><i class="bi bi-star-fill"></i></div>
 
   						</button>
@@ -72,21 +82,20 @@
   					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
   							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Ibai Llanos Garatea</a></div>
-  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
+  							<div data-bs-toggle="modal" data-bs-incidencia="Ibai Llanos Garatea" data-bs-target="#incidenciaModal" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
 
   						</button>
   					</div>
   					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
   							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Víctor de la Orden Calvete</a></div>
-  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
-
+  							<div data-bs-toggle="modal" data-bs-incidencia="Víctor de la Orden Calvete" data-bs-target="#incidenciaModal" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
   						</button>
   					</div>
   					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
   							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Enrique Tello Barbé</a></div>
-  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
+  							<div data-bs-toggle="modal" data-bs-incidencia="Enrique Tello Barbé" data-bs-target="#incidenciaModal" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
 
   						</button>
   					</div>
@@ -147,6 +156,29 @@
 				</div>
 			</div>
 			<br>
-    </div>
+         </div>
+        </div>
+
+        <div class="modal fade" id="incidenciaModal" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Informar Incidencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <b>Atención!</b> Estás apunto de informar sobre una incidencia con el alumno <span id="alumno-incidencia" class="fw-bold"></span>, esta incidencia no será comunicada al respectivo alumno pero si al profesor de la asignatura.
+                <div class="form-floating mt-3">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                  <label for="floatingTextarea">Información sobre la incidencia.</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger">Informar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 	</body>
 </html>
