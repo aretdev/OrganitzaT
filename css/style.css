@@ -569,3 +569,7 @@ input.search-on-scroll {
  	cursor: pointer;
  }
 
+ .table-asignaturas table {
+ 	width: 90%;
+ }
+
