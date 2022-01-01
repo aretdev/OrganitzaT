@@ -65,6 +65,13 @@
 }
 
 @media only screen and (max-width: 768px) {
+	.footer-main-navbar {
+	width: 100%;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 	.main-navbar .nav-mobile-wraper .notification-nav {
 		display: none;
 	}
