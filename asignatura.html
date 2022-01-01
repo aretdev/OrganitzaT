@@ -21,10 +21,17 @@
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
         activarItemMenu("item-asignaturas")
+        const buscarAlumno = () => {
+            let alumnInput = document.getElementById("inputAlumno")
+            let valueInp = alumnInput.value.toLowerCase()
+            let rowGrid = document.querySelectorAll("#alumnos_table tbody tr td:first-child")
+            rowGrid.forEach( (val, i, vec) => {
+                val.parentElement.style.display = (val.textContent.toLowerCase().indexOf(valueInp) > -1) ? "" : "none"
+            })
+        }
 
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
-            console.log(searchParams.get('acron'))
             $("#asig-data a").text(searchParams.get('acron').toUpperCase())
         })  
     </script>
@@ -35,12 +42,146 @@
 
     <div class="body-wrapper">
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
-                <ol class="breadcrumb border rounded p-3 bg-light">
-                    <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
-                    <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
+            <ol class="breadcrumb border rounded p-3 bg-light">
+                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
+                <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
+            </ol>
+        </nav>
+        <div class="card">
+          <div class="card-body">
+            <p><h3>Desarrollo Centrado en el Usuario [DCU]</h3></p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-body ">
+            <p><h5>Profesores:</h5></p>
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo </th>
+                  <th scope="col">Mensaje</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Pedro Valderas</td>
+                  <td><a href="mailto: pvalderas@dsic.upv.es">pvalderas@dsic.upv.es</a></td>
+                  <td><a href="chat.html">Enviar Mensaje</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Manoli Albert</td>
+                  <td><a href="mailto: malbert@dsic.upv.es">malbert@dsic.upv.es</a></td>
+                  <td><a href="chat.html">Enviar Mensaje</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="accordion mt-3" id="alumnosAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Alumnos
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#alumnosAccordion">
+              <div class="accordion-body">
 
-                </ol>
-            </nav>
+                  <div class="mb-3 row">
+                    <label for="inputAlumno" class="col-sm-2 m-0 col-form-label">Buscar Alumno:</label>
+                    <div class="col-sm-auto">
+                      <input type="text"  id="inputAlumno" onkeyup="buscarAlumno()" class="form-control" placeholder="Alumno" aria-label="Alumno" aria-describedby="button-buscar">
+                    </div>
+                  </div>
+
+                 <table class="table table-striped table-hover table-borderless table-sm" id="alumnos_table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Correo </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Stefan Vasile Michis</td>
+                      <td><a href="mailto: pvalderas@dsic.upv.es">stefan@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Enrique Tello Barbé</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">entelbar@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Víctor de la Orden Calvete</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">vicdelao@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Ibai Llanos Garatea</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">ibllaga@inf.upv.es</a></td>
+                    </tr>
+                     <tr>
+                      <td>Vicente Rodrigo Brisa</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">virodbri@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Steven Spielberg</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">stevspi@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Johnny Depp</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">johndep@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Yvonne Strahovski</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">yvonstra@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Robert De Niro</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">robdeni@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Jonathan Rhys Meyers</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">jonrhme@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Elisha Cuthbert</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">eliscuth@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Anne Hathaway</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">annehatha@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Taryn Manning</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">tarmanni@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Julianne Moore</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">juliamoor@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Tom Hardy</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">tomhardy@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>David Tennant</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">davitenn@inf.upv.es</a></td>
+                    </tr>
+                    <tr>
+                      <td>Scarlett Johansson</td>
+                      <td><a href="mailto: malbert@dsic.upv.es">scarljoha@inf.upv.es</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </body>
 </html>
