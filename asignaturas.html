@@ -27,6 +27,7 @@
             let asigInp = document.getElementById("inputAsignatura")
             let valueInp = asigInp.value.toLowerCase()
             let rowGrid = document.querySelectorAll("#tabla-asignaturas tbody tr")
+            
             rowGrid.forEach((val, i, vec) => {
                 val.style.display = (val.children[option].textContent.toLowerCase().indexOf(valueInp) > -1) ? "" : "none"
             })

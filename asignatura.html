@@ -20,6 +20,13 @@
     <script type="text/javascript" src="./js/generateElements.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
+
+        $(document).ready(() => {
+            let searchParams = new URLSearchParams(window.location.search)
+            $("#asig-data").text(searchParams.get('acron').toUpperCase())
+            $("#btn-entregas").attr('href', '/OrganitzaT/entregas.html?asig='+searchParams.get('acron'));
+        })  
+        
         activarItemMenu("item-asignaturas")
         const buscarAlumno = () => {
             let alumnInput = document.getElementById("inputAlumno")
@@ -30,10 +37,6 @@
             })
         }
 
-        $(document).ready(() => {
-            let searchParams = new URLSearchParams(window.location.search)
-            $("#asig-data a").text(searchParams.get('acron').toUpperCase())
-        })  
     </script>
     <title></title>
 </head>
@@ -44,7 +47,7 @@
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
             <ol class="breadcrumb border rounded p-3 bg-light">
                 <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
-                <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
+                <li class="breadcrumb-item active"  aria-current="page" id="asig-data"></li>
             </ol>
         </nav>
         <div class="card">
@@ -53,7 +56,7 @@
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
             <div class="d-grid col-3 mx-auto">
-              <button class="btn btn-primary" type="button"><i class="bi bi-people-fill"></i> Ver Grupos</button>
+              <button class="btn btn-primary" type="button"><a id="btn-entregas" class="text-light text-decoration-none" href=""><i class="bi bi-people-fill"></i> Ver Entregas</a></button>
             </div>
           </div>
         </div>
