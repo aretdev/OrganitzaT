@@ -97,7 +97,7 @@ h1{
 
 }
 .card-block div ul {
-	margin-bottom:auto;
+	margin-bottom:15px;
 	list-style: none;
 	font-size: 13.5px;
 	text-align: left;
@@ -105,22 +105,23 @@ h1{
 .card-block div ul li {
 	position: relative;
 	margin-top: auto;
-	left: -10px;
+	left: 5px;
 	margin-right: 50px;
 	text-align: left;
+
 }
 
 .card-block div span p {
 	min-width: 150px;
-	font-size: 28px;
+	font-size: 25px;
 	margin-right: 50px;
 	margin-bottom:10px;
-	margin-left: 5px;
+	margin-left: 30px;
 }
 
 .card-block div span i {
 	font-size: 25px;
-	margin-left: 100px;
+	margin-left: 120px;
 }
 .card-block:hover{
 		transform: translateY(-5px);

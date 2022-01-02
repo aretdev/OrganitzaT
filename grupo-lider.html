@@ -23,6 +23,14 @@
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
          $(document).ready(function(){
+            var incidenciaModal = document.getElementById('incidenciaModal')
+            incidenciaModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+            })
+
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
               return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -34,7 +42,6 @@
         const onclickGo = (url) => {
             document.location.href="./"+url
         }
-        activarItemMenu("item-home")
     </script>
 </head>
 <body>
@@ -68,7 +75,7 @@
   					<div class="col-10">
   						<button class="p-3 bg-light border col-12 subtitle student-button">
   							<div style="float: left;" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Perfil"  ><a href="#">Ibai Llanos Garatea</a></div>
-  							<div data-bs-toggle="tooltip" data-bs-placement="top" title="Informar incidencia"class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
+  							<div data-bs-toggle="modal" data-bs-incidencia="Ibai Llanos Garatea" data-bs-target="#incidenciaModal" class="flag"><i class="bi bi-flag-fill red-flag"></i></div>
                             <div data-bs-toggle="tooltip" data-bs-placement="top" title="Hacer representante del grupo"class="bad-star"><i class="bi bi-star-fill"></i></div>
   						</button>
   					</div>
@@ -125,19 +132,19 @@
               <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Entrega 1</p></span>
+                                <span><p>Entregable 1</p></span>
                                 <ul>
                                     <li>Entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
                                 </ul>
-                                <span><i class="bi bi-card-checklist"></i></span>
+                                <span><i class="bi bi-arrow-up-right-circle-fill"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Entrega 2</p></span>
+                                <span><p>Entregable 2</p></span>
                                 <ul>
                                     <li>No entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
@@ -149,7 +156,7 @@
                     <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Entrega 3</p></span>
+                                <span><p>Entregable 3</p></span>
                                 <ul>
                                     <li>No entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
@@ -166,5 +173,26 @@
             <br>
         </div>
     </div>
-	   </body>
+    <div class="modal fade" id="incidenciaModal" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Informar Incidencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <b>Atención!</b> Estás apunto de informar sobre una incidencia con el alumno <span id="alumno-incidencia" class="fw-bold"></span>, esta incidencia no será comunicada al respectivo alumno pero si al profesor de la asignatura.
+                <div class="form-floating mt-3">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                  <label for="floatingTextarea">Información sobre la incidencia.</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger">Informar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+	</body>
 </html>
