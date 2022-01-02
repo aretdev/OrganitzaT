@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Librerias Necesarias-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Resources Propias -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- Scripta propios -->
+    <script type="text/javascript" src="./js/scrollSystem.js"></script>
+    <script type="text/javascript" src="./js/navbarSystem.js"></script>
+    <script type="text/javascript" src="./js/generateElements.js"></script>
+    <script type="text/javascript" src="./js/cookiesSession.js"></script>
+    <script type="text/javascript">
+        activarItemMenu("item-calificaciones")
+
+        const buscarEntrega = () => {
+            let option = document.getElementById("select_param_search").value
+            let asigInp = document.getElementById("inputEntrega")
+            let valueInp = asigInp.value.toLowerCase()
+            let rowGrid = document.querySelectorAll("#tabla-entregas tbody tr")
+            
+            rowGrid.forEach((val, i, vec) => {
+                val.style.display = (val.children[option].textContent.toLowerCase().indexOf(valueInp) > -1) ? "" : "none"
+            })
+
+        }
+        const goAsign = (url) => {
+            document.location.href="/Organitzat/"+url
+        }
+    </script>
+    <title></title>
+</head>
+<body>  
+    <nav id="footernavbar-bar"></nav> 
+
+    <div class="body-wrapper">
+        <div class="mt-5 org-badge badge-info">
+            Calificaciones sobre tus entregas, pulsando sobre ellas puedes acceder a los detalles de las mismas.
+        </div>
+
+
+        <div class="card">
+          <div class="card-body">
+
+            <div class="mb-3 row">
+                <label for="inputEntrega" class="col-sm-auto ms-2 col-form-label">Buscar Calificación:</label>
+                <div class="col-sm-auto">
+                  <div class="input-group mb-3">
+                      <select class="form-select" id="select_param_search" aria-label="Seleccionar parámetro de búsqueda para asignatura">
+                        <option value="0" selected>Entrega</option>
+                        <option value="1">Asignatura</option>
+                        <option value="2">Nota</option>
+                        <option value="3">Grupo</option>
+                        <option value="4">Cuatrimestre</option>
+                      </select>
+                       <input type="text"  id="inputEntrega" onkeyup="buscarEntrega()" class="form-control" placeholder="Búsqueda" aria-label="asignatura" aria-describedby="button-buscar">
+                    </div>
+                </div>
+              </div>
+            <div class="table-responsive table-asignaturas">
+                <table class="table table-hover table-striped mx-auto" id="tabla-entregas">
+                    <thead>
+                    <tr>
+                      <th scope="col" >Entrega</th>
+                      <th scope="col" >Asignatura</th>
+                      <th scope="col" >Nota</th>
+                      <th scope="col" >Grupo</th>
+                      <th scope="col" >Cuatrimestre</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!--He puesto solo entregas y au de momento, si profundizamos en las entregas ya lo cambiaré-->
+                    <tr onclick="goAsign('entregas.html')">
+                      <td>Entrega 1</td>
+                      <td>DCU</td>
+                      <td>6,90</td>
+                      <td>23</td>
+                      <td>A</td>
+
+                    </tr>
+                    <tr onclick="goAsign('entregas.html')">
+                      <td>Entrega 2</td>
+                      <td>IAP</td>
+                      <td>9,87</td>
+                      <td>1</td>
+                      <td>A</td>
+                    </tr>
+                    <tr onclick="goAsign('entregas.html')">
+                      <td>Entrega Final</td>
+                      <td>DEW</td>
+                      <td>4,95</td>
+                      <td>16</td>
+                      <td>B</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
