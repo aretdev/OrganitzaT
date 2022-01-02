@@ -30,19 +30,25 @@
          });
 
     </script>
-    
+        <script type="text/javascript">
+        const onclickGo = (url) => {
+            document.location.href="./"+url
+        }
+        activarItemMenu("item-home")
+    </script>
 </head>
 <body>
 	<div id="navigation-bar"></div> 
     <div id="footernavbar-bar"></div> 
     <div class="body-wrapper">  
                 <div class="container-fluid justify-content-center text-black">
-
-                <ol class="breadcrumb justify-content-center float-start fs-3 m-0 p-0 mt-5">
+                    <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb border rounded p-3 bg-light">
+                    <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
                     <li class="breadcrumb-item"><a href="#">DCU</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Grupo 23</li>
                 </ol>
-                <hr >
+            </nav>
                 <div class="ps-5 mt-5 mb-5">
                     <h5 >Nota: <u>Sin calificar</u> </h5>
                     <p >Grupo Incomompleto [2/5] - Actualmente representas este grupo</p>
@@ -107,7 +113,7 @@
         </div>
         <br>
 		<div class="container-fluid">
-        <p class="subtitle sub-hr-indicator float-start">Tareas de DCU / Grupo 23<hr /></p>   
+        <p class="subtitle sub-hr-indicator float-start">Entregas próximas de DCU / Grupo 23<hr /></p>   
 		<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
           <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
                     <span><i class="bi bi-caret-right-fill"></i></span>
@@ -119,7 +125,7 @@
               <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Tarea 1</p></span>
+                                <span><p>Entrega 1</p></span>
                                 <ul>
                                     <li>Entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
@@ -131,7 +137,7 @@
                     <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Tarea 2</p></span>
+                                <span><p>Entrega 2</p></span>
                                 <ul>
                                     <li>No entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
@@ -143,7 +149,7 @@
                     <div class="col-auto">
                         <div class="card-block cards">
                             <div>
-                                <span><p>Tarea 3</p></span>
+                                <span><p>Entrega 3</p></span>
                                 <ul>
                                     <li>No entregada</li>
                                     <li>Fecha Fin de Entrega: x</li>
@@ -153,6 +159,9 @@
                         </div>
                     </div>
 				</div>
+                <div onclick="onclickGo('entregas.html')">
+                    <button class="entregablebutton">Ver todos los entregables</button>
+                </div>
 			</div>
             <br>
         </div>
