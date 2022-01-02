@@ -22,6 +22,14 @@
     <script type="text/javascript">
         activarItemMenu("item-asignaturas")
 
+        const buscarEntrega = () => {
+          let inputVal = document.getElementById("inputEntrega").value.toLowerCase()
+          let rowGrid = document.querySelectorAll(".card-header")
+          rowGrid.forEach((val, i, vec) => {
+            val.parentElement.parentElement.style.display = (val.textContent.toLowerCase().indexOf(inputVal) > -1) ? "" : "none"
+          })
+        }
+
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data a").text(searchParams.get('asig').toUpperCase())
@@ -43,12 +51,23 @@
         <div class="mt-3 org-badge badge-info">
             Acontinuación se muestrán los entregables correspondientes a la asignatura, accede a los mismos para ver los grupos disponibles.
         </div>
+
+        <div class="card mb-3">
+          <div class="card-body ps-4 pe-5">
+            <div class="row">
+                    <label for="inputEntrega" class="col-sm-auto m-0 col-form-label">Buscar Entrega:</label>
+                    <div class="col-sm-auto">
+                      <input type="text"  id="inputEntrega" onkeyup="buscarEntrega()" class="form-control" placeholder="Entrega" aria-label="Entrega" aria-describedby="button-buscar-entrega">
+                    </div>
+                  </div>
+
+          </div>
+        </div>
         <div class="container">
           <div class="row">
-            <div class="col">
-
+            <div class="col-md-4">
               <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 1</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
@@ -60,9 +79,9 @@
               </div>
 
             </div>
-            <div class="col">
+            <div class="col-md-4">
                <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 2</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
@@ -73,9 +92,9 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 3</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
@@ -91,9 +110,9 @@
 
         <div class="container">
           <div class="row">
-            <div class="col">
+            <div class="col-md-4">
                <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 4</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
@@ -104,9 +123,9 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 5</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
@@ -117,9 +136,9 @@
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4">
                <div class="card border mb-3">
-                <div class="card-header fs-5">Entregable</div>
+                <div class="card-header fs-5">Entregable 6</div>
                 <div class="card-body">
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
