@@ -35,10 +35,7 @@
             var asig = document.getElementById('asignatura');
             const urlParams = new URLSearchParams(window.location.search);
             const refererAsig = urlParams.get('asig');
-            const refererEntregable = urlParams.get('num');
             asig.innerHTML = refererAsig;
-            var numEntregable = document.getElementById('tipoEntregable');
-            numEntregable.innerHTML += refererEntregable;
 
             var data = document.getElementById('data');
             for (var i = 1; i <= 15; i++) {
@@ -67,8 +64,7 @@
             <ol class="breadcrumb p-3 border rounded bg-light">
                 <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
                 <li class="breadcrumb-item"><a id="asignatura" href="#"></a></li>
-                <li class="breadcrumb-item"><a href="#">Entregas</a></li>
-                <li id="tipoEntregable" class="breadcrumb-item active" aria-current="page">Entregable </li>
+                <li class="breadcrumb-item active">Grupos</li>
             </ol>
         </nav>
         <div class="org-badge badge-info">
