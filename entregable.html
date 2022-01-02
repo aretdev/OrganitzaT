@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Librerias Necesarias-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Resources Propias -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- Scripta propios -->
+    <script type="text/javascript" src="./js/scrollSystem.js"></script>
+    <script type="text/javascript" src="./js/navbarSystem.js"></script>
+    <script type="text/javascript" src="./js/generateElements.js"></script>
+    <script type="text/javascript" src="./js/cookiesSession.js"></script>
+    <script type="text/javascript">
+        activarItemMenu("item-asignaturas")
+
+        const getFilesSelected = () => {
+          let input = document.getElementById("getFile")
+          $("#num_selected").text(input.files.length)
+          for (let i = 0; i < input.files.length; i++) {
+            $("#archivos-selected").append("<li>" + input.files[i].name + "</li>")
+          }
+        }
+
+        $(document).ready(() => {
+            let searchParams = new URLSearchParams(window.location.search)
+            $("#asig-data a").text(searchParams.get('asig').toUpperCase())
+            $("#grupo-data a").text("Grupo " + searchParams.get('grupo').toUpperCase())
+            $("#entregable-data").text(searchParams.get('entregable'))
+            $(".card .card-body p:first-child").html("<h3>"+searchParams.get('entregable')+"</h3>")
+            $(".text-primary span").html(searchParams.get('grupo'))
+        })  
+    </script>
+    <title></title>
+</head>
+<body>  
+    <nav id="footernavbar-bar"></nav> 
+
+    <div class="body-wrapper">
+        <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb border rounded p-3 bg-light">
+                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
+                <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
+                <li class="breadcrumb-item" ><a href="#">Grupos</a></li>
+                <li class="breadcrumb-item" id="grupo-data"><a href="#">Grupo 1</a></li>
+                <li class="breadcrumb-item"><a href="">Entregas</a></li>
+                <li class="breadcrumb-item active" id="entregable-data" aria-current="page">Entregable 1</li>
+            </ol>
+        </nav>
+        <div class="card">
+          <div class="card-body ps-5 pe-5 pt-4">
+            <p></p>
+            <hr>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Nota: Sin calificar</li>
+              <li class="list-group-item">Asignatura : DCU</li>
+              <li class="list-group-item">Fecha de Entrega : DD/MM/YYYY</li>
+              <li class="list-group-item">Entregado: No</li>
+            </ul>
+            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
+            <hr>
+            <small class="mt-0 p-0 text-secondary">Entregar:</small>
+            <p class="text-primary"><i class="bi bi-people-fill"></i> Al entregar estás representando al Grupo <span></span></p>
+            <div class="container">
+              <small class="text-secondary">Archivos seleccionados: <span id="num_selected">0</span></small>
+              <div class="card overflow-auto" style="max-width: 400px;">
+                <div class="card-body" style="height: 100px;">
+                  <ul class="text-decoration-none overflow-scroll" style="max-height: 100%;" id="archivos-selected">
+                    
+                  </ul>
+                </div>
+              </div>
+                <button class="d-block btn-primary btn mt-3" onclick="document.getElementById('getFile').click()">Seleccionar Archivos a Entregar</button>
+                <input onchange="getFilesSelected()" type='file' id="getFile" class="d-none" multiple>
+
+                <button type="submit" class="float-start mt-3 mb-3 btn btn-warning" disabled>Entregar</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
