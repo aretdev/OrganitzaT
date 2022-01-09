@@ -23,7 +23,7 @@
         activarItemMenu("item-asignaturas")
 
         const getFilesSelected = () => {
-          console.log($("#archivos-selected").children().remove())
+          $("#archivos-selected").children().remove()
           let input = document.getElementById("getFile")
           $("#num_selected").text(input.files.length)
           for (let i = 0; i < input.files.length; i++) {
