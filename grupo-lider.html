@@ -23,7 +23,24 @@
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
          $(document).ready(function(){
+            var asigN = document.getElementById('asignatura');
+            var grupoN = document.getElementById('grupo');
+            const urlParams = new URLSearchParams(window.location.search);
+            const refererAsig = urlParams.get('asig');
+            asigN.innerHTML = refererAsig;
+            const refererGrup = urlParams.get('grupo');
+            grupoN.innerHTML += refererGrup;
+            asigN.setAttribute('href','asignatura.html?acron=' + refererAsig);
+
             var incidenciaModal = document.getElementById('incidenciaModal')
+            incidenciaModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+            })
+
+            var incidenciaModal2 = document.getElementById('incidenciaModal2')
             incidenciaModal.addEventListener('show.bs.modal', function (event) {
               var button = event.relatedTarget
               var recipient = button.getAttribute('data-bs-incidencia')
@@ -51,17 +68,19 @@
                 <div class="container-fluid justify-content-center text-black">
                     <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
                 <ol class="breadcrumb border rounded p-3 bg-light">
-                    <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
-                    <li class="breadcrumb-item"><a href="#">DCU</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Grupo 23</li>
+                    <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
+                    <li class="breadcrumb-item"><a href="#" id="asignatura"></a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="grupo">Grupo </li>
                 </ol>
             </nav>
                 <div class="ps-5 mt-5 mb-5">
                     <h5 >Nota: <u>Sin calificar</u> </h5>
                     <p >Grupo Incomompleto [2/5] - Actualmente representas este grupo</p>
-                    <button type="button" class="btn btn-sm btn-outline-danger float-end exit">
+                    <div data-bs-toggle="modal" data-bs-incidencia="" data-bs-target="#incidenciaModal2">
+                        <button type="button" class="btn btn-sm btn-outline-danger float-end exit">
                             Solicitar Salir
-                    </button>
+                        </button>
+                    </div>
                 </div>
                 
                 <p class="subtitle sub-hr-indicator float-start">Integrantes </p>
@@ -190,6 +209,27 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-danger">Informar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="incidenciaModal2" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Solicitud de Salida de Grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <b>Atención!</b> Estás apunto de hacer una solicitud de salida del grupo. Esto supondrá que la petición llegará al profesorado responsable del entregable y sera este quien decidirá si acabas saliendo de este grupo para incorporarte a otro. Por favor rellena el campo de información para informar debidamente al profesorado.
+                <div class="form-floating mt-3">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                  <label for="floatingTextarea">Información sobre la solicitud.</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger">Enviar</button>
               </div>
             </div>
           </div>

@@ -37,13 +37,22 @@
             const refererAsig = urlParams.get('asig');
             asig.innerHTML = refererAsig;
 
+            var incidenciaModal = document.getElementById('incidenciaModal')
+            incidenciaModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+            })
+
             var data = document.getElementById('data');
             for (var i = 1; i <= 15; i++) {
             data.innerHTML += '<div class="col-10">'+
                 '<button class="p-3 bg-light border col-12 subtitle student-button">'+
                             '<div style="float: left;" data-bs-toggle="tooltip"'+ 
-                            'data-bs-placement="top" title="Información del grupo"><a href="#">Grupo '+ i +'</a></div>' + 
-                            '<div data-bs-toggle="tooltip" data-bs-placement="top" '+'title="Solicitar entrar"class="enter"><i class="bi '+'bi-arrow-return-right"></i>'+
+                            'data-bs-placement="top" title="Información del grupo"><a href="infogrupo.html?asig=' + refererAsig+ '&grupo=' + i + 
+                            '">Grupo '+ i +'</a></div>' + 
+                            '<div data-bs-toggle="modal" data-bs-incidencia="" data-bs-target="#incidenciaModal" data-bs-placement="top" '+'title="Solicitar entrar"class="enter"><i>Solicitar Entrada</i>'+
                            '</div>'+
                             '<div class="num-ints">['+ rand_int(0,5) +' / 5]</div>'+
                         '</button>'+
@@ -75,5 +84,26 @@
                 </div>
             </div>
     </div>
+    <div class="modal fade" id="incidenciaModal" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Solicitar entrar al grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ¿Deseas solicitar la entrada al grupo?
+                <div class="form-floating mt-3">
+                  <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
+                  <label for="floatingTextarea">Mensaje de solicitud de entrada</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 </body>
 </html>

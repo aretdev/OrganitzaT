@@ -24,9 +24,23 @@
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data").text(searchParams.get('acron').toUpperCase())
-            $("#btn-entregas").attr('href', '/OrganitzaT/grupos.html?asig='+searchParams.get('acron').toUpperCase());
-        })  
+            $("#btn-entregas").attr('href', '/OrganitzaT/grupos.html?asig='+searchParams.get('acron').toUpperCase())
+            $("#AcronAsig").text(searchParams.get('acron').toUpperCase());
 
+            $.ajax({
+              type: "GET",
+              url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase() + ".2021",
+              cache: false,
+              success: function(data){
+              $("#NombreAsig").text(data.nombre);
+              },
+              error: function(){
+              $("#NombreAsig").text("Desarrollo Centrado en las Tetas"); 
+              }
+         });
+
+        })  
+        
         activarItemMenu("item-asignaturas")
         const buscarAlumno = () => {
             let alumnInput = document.getElementById("inputAlumno")
@@ -46,13 +60,13 @@
     <div class="body-wrapper">
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb border rounded p-3 bg-light">
-                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
+                <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
                 <li class="breadcrumb-item active"  aria-current="page" id="asig-data"></li>
             </ol>
         </nav>
         <div class="card">
           <div class="card-body ps-5 pe-5">
-            <p><h3>Desarrollo Centrado en el Usuario [DCU]</h3></p>
+            <p><h3 id="NombreAsig">Desarrollo Centrado en el Usuario <span id="AcronAsig"></span></h3></p>
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
             <div class="d-grid col-3 mx-auto">
