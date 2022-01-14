@@ -35,7 +35,8 @@
               $("#NombreAsig").text(data.nombre);
               },
               error: function(){
-              $("#NombreAsig").text("Desarrollo Centrado en las Tetas"); 
+              $("#NombreAsig").text("Desarrollo Centrado en el Usuario");
+              $("#AcronAsig").text(searchParams.get('acron').toUpperCase()); 
               }
          });
 
