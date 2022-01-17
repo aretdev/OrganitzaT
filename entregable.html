@@ -33,9 +33,13 @@
 
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
+            $("#entregas-chan").attr("href","entregas.html?asig=" + searchParams.get('asig').toUpperCase() + "&grupo=" + searchParams.get('grupo').toUpperCase())
             $("#asig-data a").text(searchParams.get('asig').toUpperCase())
             $("#grupo-data a").text("Grupo " + searchParams.get('grupo').toUpperCase())
             $("#entregable-data").text(searchParams.get('entregable'))
+            $("#grupo-concreto").attr("href", "grupo-no-lider.html?asig=" + searchParams.get('asig').toUpperCase() + "&grupo=" + searchParams.get('grupo').toUpperCase())
+            $("#grupos").attr("href","grupos.html?asig=" + searchParams.get('asig').toUpperCase())
+            $("#asig-data-enlace").attr("href","asignatura.html?acron=" + searchParams.get('asig').toUpperCase())
             $(".card .card-body p:first-child").html("<h3>"+searchParams.get('entregable')+"</h3>")
             $(".text-primary span").html(searchParams.get('grupo'))
         })  
@@ -48,11 +52,11 @@
     <div class="body-wrapper">
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb border rounded p-3 bg-light">
-                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
-                <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
-                <li class="breadcrumb-item" ><a href="#">Grupos</a></li>
-                <li class="breadcrumb-item" id="grupo-data"><a href="#">Grupo 1</a></li>
-                <li class="breadcrumb-item"><a href="">Entregas</a></li>
+                <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
+                <li class="breadcrumb-item" id="asig-data"><a id="asig-data-enlace" href="#"></a></li>
+                <li class="breadcrumb-item"><a href="#" id="grupos">Grupos</a></li>
+                <li class="breadcrumb-item" id="grupo-data"><a id="grupo-concreto" href="#">Grupo 1</a></li>
+                <li class="breadcrumb-item"><a href="#" id="entregas-chan">Entregas</a></li>
                 <li class="breadcrumb-item active" id="entregable-data" aria-current="page">Entregable 1</li>
             </ol>
         </nav>

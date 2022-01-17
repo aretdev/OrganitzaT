@@ -25,12 +25,14 @@
          $(document).ready(function(){
             var asigN = document.getElementById('asignatura');
             var grupoN = document.getElementById('grupo');
+            var infoE = document.getElementById('info-entrega');
             const urlParams = new URLSearchParams(window.location.search);
             const refererAsig = urlParams.get('asig');
             asigN.innerHTML = refererAsig;
             const refererGrup = urlParams.get('grupo');
             grupoN.innerHTML += refererGrup;
             asigN.setAttribute('href','asignatura.html?acron=' + refererAsig);
+            infoE.innerHTML = 'Entregas próximas de ' + refererAsig + ' / Grupo ' + refererGrup;
 
             var incidenciaModal = document.getElementById('incidenciaModal')
             incidenciaModal.addEventListener('show.bs.modal', function (event) {
@@ -58,8 +60,16 @@
     </script>
     <script type="text/javascript">
         const onclickGo = (url) => {
-            document.location.href="./"+url
+            document.location.href="/"+url
         }
+    </script>
+    <script type="text/javascript">
+    	const entregableGo = (num) => {
+    		const urlParams = new URLSearchParams(window.location.search);
+            const refererAsig = urlParams.get('asig');
+            const refererGrup = urlParams.get('grupo');
+            document.location.href="entregable.html?asig="+refererAsig+"&grupo="+refererGrup+"&entregable=Entregable "+num;
+        	}
     </script>
 	<title></title>
 </head>
@@ -130,7 +140,7 @@
   			</div>
 		</div>
 		<div class="container-fluid">
-		<p class="subtitle sub-hr-indicator float-start">Entregas próximas de IAP / Grupo 1<hr /></p>
+		<p class="subtitle sub-hr-indicator float-start" id="info-entrega">Entregas próximas de IAP / Grupo 1<hr /></p>
 		<div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
           <div class="indicator-scroller-right" onclick="scrollRightBut(this)">
                     <span><i class="bi bi-caret-right-fill"></i></span>
@@ -140,7 +150,7 @@
                     <span><i class="bi bi-caret-left-fill"></i></span>
                 </div>
               <div class="col-auto">
-                        <div class="card-block cards">
+                        <div class="card-block cards" onclick="entregableGo(1);">
                             <div>
                                 <span><p>Entregable 1</p></span>
                                 <ul>
@@ -152,7 +162,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <div class="card-block cards">
+                        <div class="card-block cards" onclick="entregableGo(2);">
                             <div>
                                 <span><p>Entregable 2</p></span>
                                 <ul>
@@ -164,7 +174,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <div class="card-block cards">
+                        <div class="card-block cards" onclick="entregableGo(3);">
                             <div>
                                 <span><p>Entregable 3</p></span>
                                 <ul>

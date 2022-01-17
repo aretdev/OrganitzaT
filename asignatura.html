@@ -31,11 +31,12 @@
               type: "GET",
               url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase() + ".2021",
               cache: false,
+              timeout: 200,
               success: function(data){
               $("#NombreAsig").text(data.nombre);
               },
               error: function(){
-              $("#NombreAsig").text("Desarrollo Centrado en el Usuario");
+              $("#NombreAsig").text("Asignatura no encontrada en GGAEBD, envíe un correo a organitzat@asistencia.com para comunicar el fallo.");
               $("#AcronAsig").text(searchParams.get('acron').toUpperCase()); 
               }
          });

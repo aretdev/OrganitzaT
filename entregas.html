@@ -33,12 +33,27 @@
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data a").text(searchParams.get('asig').toUpperCase())
-
+            $("#grupo-data a").text("Grupo " + searchParams.get('grupo').toUpperCase())
             $.each($(".ver-entrega"), function(index, val) {
                let ent_name = val.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("card-header")[0].textContent;
-               val.setAttribute("href","./entregable.html?asig="+searchParams.get('asig').toUpperCase() + "&grupo=1&entregable=" + ent_name);
+               val.setAttribute("href","./entregable.html?asig="+searchParams.get('asig').toUpperCase() + "&grupo="+searchParams.get('grupo').toUpperCase()+"&entregable=" + ent_name);
             });
         })  
+    </script>
+    <script type="text/javascript">
+      const clickGo = (input, val) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refererAsig = urlParams.get('asig');
+            document.location.href= input +".html?"+val+"="+refererAsig;
+        }
+    </script>
+    <script type="text/javascript">
+      const grupoGo = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refererAsig = urlParams.get('asig');
+            const refererGrup = urlParams.get('grupo');
+            document.location.href= "grupo-no-lider.html?asig=" + refererAsig +"&grupo=" + refererGrup;
+        }
     </script>
     <title></title>
 </head>
@@ -48,10 +63,10 @@
     <div class="body-wrapper">
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb border rounded p-3 bg-light">
-                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
-                <li class="breadcrumb-item" id="asig-data"><a href="#"></a></li>
-                <li class="breadcrumb-item" ><a href="#">Grupos</a></li>
-                <li class="breadcrumb-item" ><a href="#">Grupo</a></li>
+                <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
+                <li class="breadcrumb-item" id="asig-data" onclick="clickGo('asignatura', 'acron');"><a href="#" id="asig-info"></a></li>
+                <li class="breadcrumb-item" onclick="clickGo('grupos', 'asig');"><a href="#" id="grupos-info">Grupos</a></li>
+                <li class="breadcrumb-item" id="grupo-data" onclick="grupoGo();"><a href="#" id="grupo-concreto">Grupo</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Entregas</li>
             </ol>
         </nav>
