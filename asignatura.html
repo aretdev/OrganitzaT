@@ -24,12 +24,12 @@
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data").text(searchParams.get('acron').toUpperCase())
-            $("#btn-entregas").attr('href', '/OrganitzaT/grupos.html?asig='+searchParams.get('acron').toUpperCase())
+            $("#btn-entregas").attr('href', '/OrganitzaT/entregas.html?asig=IAP')
             $("#AcronAsig").text(searchParams.get('acron').toUpperCase());
 
             $.ajax({
               type: "GET",
-              url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase() + ".2021",
+              url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase(),
               cache: false,
               timeout: 200,
               success: function(data){
@@ -82,7 +82,8 @@
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
             <div class="d-grid col-3 mx-auto">
-              <a id="btn-entregas" class="text-light text-decoration-none btn btn-primary" href=""><i class="bi bi-people-fill"></i> Ver Grupos</a>
+              <a id="btn-entregas" class="text-light text-decoration-none btn btn-primary" href=""><i class="bi bi-journal-bookmark-fill"></i>
+             Ver Actos De Evaluación</a>
             </div>
           </div>
         </div>

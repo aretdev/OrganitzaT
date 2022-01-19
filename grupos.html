@@ -38,6 +38,8 @@
             asig.innerHTML = refererAsig;
             $("#asignatura").attr("href","asignatura.html?acron=" + refererAsig);
 
+
+            let ent = $("#entregable").text(urlParams.get('act'))
             var incidenciaModal = document.getElementById('incidenciaModal')
             incidenciaModal.addEventListener('show.bs.modal', function (event) {
               var button = event.relatedTarget
@@ -83,16 +85,17 @@
             <ol class="breadcrumb p-3 border rounded bg-light">
                 <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
                 <li class="breadcrumb-item"><a id="asignatura" href="#"></a></li>
-                <!--<li class="breadcrumb-item"><a id="entregable" href="#"></a></li>-->
+                <li class="breadcrumb-item"><a href="#">Actos Evaluación</a></li>
                 <li class="breadcrumb-item active">Grupos</li>
             </ol>
         </nav>
         <div class="org-badge badge-info">
-            Grupos disponibles para el trabajo, solicita unirse para formar parte de uno o bien crea un grupo si el profesor de la asignatura lo permite. 
+            Grupos disponibles para el trabajo, solicita unirse para formar parte de uno o bien crea un grupo si el profesor de la asignatura lo permite. <br>            
         </div>
-        <div class="position-relative">
-            <div data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" data-bs-placement="top" title="Crear Grupo"class="entregar">
-                <i>Crear grupo</i>
+
+        <div class="text-center">
+            <div data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" data-bs-placement="top" title="Crear Grupo" class="btn btn-sm btn-outline-primary w-25">
+                <i> <i class="bi bi-plus-square"></i> Crear Nuevo grupo</i>
             </div>
         </div>
         <br>
@@ -130,14 +133,35 @@
               </div>
               <div class="modal-body">
                 ¿Deseas crear un grupo para este acto de evaluación? El profesor ha espeficicado un máximo de <b>5</b> integrantes. Al crear el grupo serás el líder de este.
-                <div class="form-floating mt-3">
-                  <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
-                  <label for="floatingTextarea">Nombre del Grupo</label>
-                </div>
+                <form class="m-4">
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Nombre del grupo</label>
+                    <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                  </div>
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Invitar Compañero:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                        <button class="btn btn-outline-success" type="button"><i class="bi bi-person-plus-fill"></i></button>
+
+                     </div>
+                      <small class="text-secondary">Integrantes del grupo:</small>
+                      <div class="card overflow-auto">
+                        <div class="card-body" style="height: 100px;">
+                          <ul class="text-decoration-none list-unstyled overflow-scroll" style="max-height: 100%;" >
+                            <li>Stefan Vasile Michis <b>(Tu)</b> <u>Lider</u></li>
+                            <li>Vicente Rodrigo Brisa  <a href="" class="fs-5 text-danger"><i class="bi bi-person-dash-fill"></i>
+</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success">Crear</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Crear</button>
+                
               </div>
             </div>
           </div>

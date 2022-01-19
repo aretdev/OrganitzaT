@@ -128,7 +128,7 @@
 	display: block;
 	font-size: 1.6em ;
 	position: absolute;
-	z-index: 9999;
+	z-index: 1050;
 	left: calc(100% - 110px);
 	cursor: pointer;
 	color: white;
@@ -159,7 +159,7 @@
 	border-radius: 10px;
 	border: 1px solid #ccc ;
 	position: fixed;
-	z-index: 99999;
+	z-index: 1058;
 	right: 0;
 	top :80px;
 	margin:20px ;
@@ -277,7 +277,7 @@
 	display: none;
 	padding: 0;
 	margin: 0;
-	z-index: 9999;
+	z-index: 1050;
 	position: fixed;
 	right: 0;
 	top: 70px;
@@ -286,7 +286,7 @@
 
 .sticky-main-navbar {
 	position: fixed;
-	z-index: 99999;
+	z-index: 1051;
 	width: 100%;
 	top: 0;
 	display: flex;
@@ -413,7 +413,7 @@
 	display: none;
 	padding: 0;
 	margin: 0;
-	z-index: 9999;
+	z-index: 1059;
 	position: fixed;
 	right: 0;
 	top: 80px;
