@@ -21,6 +21,13 @@
     <script type="text/javascript" src="./js/generateElements.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
+        $(document).ready(()=>{
+            var createGroupModal = document.getElementById('createGroupModal')
+            createGroupModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+            })
+        })
         const onclickGo = (url) => {
             document.location.href="./"+url
         }
@@ -39,19 +46,19 @@
                             <img src="./img/avatar_default.png" class="rounded-circle border" width="60" alt="...">
                         </div>
                         <div class="col">
-                            Bienvenido <b><span  id="alumno_name">Test</span></b>                  
+                            Bienvenido <b><span  id="alumno_name">Stefan Vasile Michis</span></b>                  
                         </div>
-                        <div class="col">
+                        <div class="col-md-auto m-0">
                           <div class="float-end">
                             <button class="btn btn-sm btn-outline-success"><i class="bi bi-file-earmark-person-fill"></i>  Generar Expediente</button>                     
                          </div>
                         </div>
+                        <div class="col-md-auto m-0">
+                          <div class="float-end">
+                            <button data-bs-toggle="modal" data-bs-incidencia="" data-bs-target="#createGroupModal" class="btn btn-sm btn-outline-secondary"><i class="bi bi-plus-square-fill"></i> Nuevo Grupo</button>                     
+                         </div>
+                        </div>
                       </div>
-
-
-
-                    
-                    
                 </div>
             </div>
 
@@ -307,5 +314,66 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="createGroupModal" tabindex="-1" aria-labelledby="createGroupModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="createGroupModalLabel">Crear grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Estás apunto de crear un grupo para un acto de evaluación , rellena los campos necesarios para continuar con la creación. Ten en cuenta que depende los integrantes máximos de cada acto puede cambiar dependiendo de la configuración propuesta por el profesor.
+                <form class="m-4">
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Nombre del grupo</label>
+                    <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                  </div>
+                  <div class="mb-3">
+                        <label for="asignaturaGroup" class="form-label">Asignatura</label>
+                        <select id="asignaturaGroup" class="form-select" aria-label="Seleccione Asignatura">
+                          <option selected></option>
+                          <option value="1">IAP</option>
+                          <option value="2">DCU</option>
+                          <option value="3">DEW</option>
+                          <option value="3">RCO</option>
+                        </select>
+                      
+                  </div>
+                    <div class="mb-3">
+                        <label for="actoGroup" class="form-label">Acto de Evaluación:</label>
+                        <select id="actoGroup" class="form-select" aria-label="Seleccione Asignatura">
+                          <option selected></option>
+                          <option value="1">Entregable 1</option>
+                          <option value="2">Entregable 2</option>
+                          <option value="3">Cuestionarios</option>
+                          <option value="3">Entregable Final</option>
+                        </select>
+                      
+                  </div>
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Invitar Compañero:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                        <button class="btn btn-outline-success" type="button"><i class="bi bi-person-plus-fill"></i></button>
+
+                     </div>
+                      <small class="text-secondary">Integrantes del grupo:</small>
+                      <div class="card overflow-auto">
+                        <div class="card-body" style="height: 100px;">
+                          <ul class="text-decoration-none list-unstyled overflow-scroll" style="max-height: 100%;" >
+                            <li>Stefan Vasile Michis <b>(Tu)</b> <u>Lider</u></li>
+                            <li>Vicente Rodrigo Brisa  <a href="" class="fs-5 text-danger"><i class="bi bi-person-dash-fill"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success">Crear</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
 </body>
 </html>

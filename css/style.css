@@ -7,6 +7,10 @@
  * 
  * **/
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .body-wrapper {
 	padding-bottom: 200px;
 }
