@@ -11,26 +11,46 @@
  **/
  
 const login = (form) => {
-    let dni = form.dniAlumno.value
-    let correctLogin = false
-    /*
-        Llamada a ajax preguntando por el alumno si existe
-    */
 
-    const d = new Date();
-    d.setTime(d.getTime() + (24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = "dni=" + dni + ";" + expires + ";path=/";
-    console.log("Sesión iniciada, cookie definida bajo dni")
-    document.location.href="/Organitzat/home.html"
+    /*
+
+        Para facilitar las cosas , la variable machineName corresponde a la dirección a la que apunta el servicio
+
+    **/
+    const machineName = "http://iap-056-2021.dsicv.upv.es:8081"
+    localStorage.setItem('machine', machineName);
+
+
+    let dni = form.dniAlumno.value
+
+    $.ajax({
+        type: "GET",
+        url : localStorage.getItem("machine") + "/expediente/" + dni,
+        cache: false,
+
+        success : (data) => {
+            console.log(data[0].dni)
+            if(data[0].dni != null) {
+                const d = new Date();
+                d.setTime(d.getTime() + (24*60*60*1000));
+                let expires = "expires="+ d.toUTCString();
+                document.cookie = "dni=" + dni + ";" + expires + ";path=/";
+                console.log("Sesión iniciada, cookie definida bajo dni")
+                document.location.href="./home.html"
+            }else {
+                form.dniAlumno.classList.add("is-invalid")
+            }
+        }
+    })
     return false;
-    
+
+
 }
 
 const logout = () => {
     document.cookie = 'dni=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     console.log("Sesión finalizada, cookie borrada")
-    document.location.href="/Organitzat";
+    document.location.href="./index.html";
     return false
 }
 

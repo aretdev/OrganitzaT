@@ -27,6 +27,19 @@
               var button = event.relatedTarget
               var recipient = button.getAttribute('data-bs-incidencia')
             })
+
+
+
+            $.ajax({
+                type: "GET",
+                url : localStorage.getItem("machine") + "/expediente/" + getDNI(),
+                cache: false,
+
+                success : (data) => {
+                    $("#alumnoName").text(data[0].nombre + " " + data[0].apellidos)
+                }
+            })
+
         })
         const onclickGo = (url) => {
             document.location.href="./"+url
@@ -46,7 +59,7 @@
                             <img src="./img/avatar_default.png" class="rounded-circle border" width="60" alt="...">
                         </div>
                         <div class="col">
-                            Bienvenido <b><span  id="alumno_name">Stefan Vasile Michis</span></b>                  
+                            Bienvenido <b><span  id="alumnoName">Stefan Vasile Michis</span></b>                  
                         </div>
                         <div class="col-md-auto m-0">
                           <div class="float-end">

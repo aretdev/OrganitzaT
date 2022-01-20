@@ -21,6 +21,25 @@
     <script type="text/javascript" src="./js/generateElements.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
 	<title>Organitzat - Perfil</title>
+	<script type="text/javascript">
+		$(document).ready(() => {
+			$.ajax({
+                type: "GET",
+                url : localStorage.getItem("machine") + "/expediente/" + getDNI(),
+                cache: false,
+
+                success : (data) => {
+                    $("#alumnoName").text(data[0].nombre + " " + data[0].apellidos)
+                    $("#insertZipCode").text(data[0].dirPostal)
+                    data[0].asignaturas.map((elem, i) => {
+                    	elem.map((asig) => {
+                    		$("#insertingPointAsig").after("<a class='me-2' href='asignatura.html?acron="+asig.id_asig+"'>"+asig.acronimo+" </a>")
+                    	})
+                    })
+                }
+            })
+		})
+	</script>
 </head>
 <body>
 <nav id="footernavbar-bar"></nav> 
@@ -32,16 +51,14 @@
 	        <div class="image d-flex flex-column justify-content-center align-items-center"> 
 
 	        	<img src=".\img\avatar_default.png" height="100" width="150" /> 
-	        	<span class="name mt-3 user">Juan Alberto García Damián</span>
+	        	<span class="name mt-3 user" id="alumnoName">Juan Alberto García Damián</span>
 	        	<br>
 	        	<span class="curso">Alumno</span> 
 	        	<span class="curso">4TI11</span>
 	            
 	            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
 	            	<span class="curso">Asignaturas: 
-	            		<br>
-	            		<a href="asignatura.html?acron=iap">IAP</a> <span>,</span>
-	            		<a href="asignatura.html?acron=dcu">DCU</a> 
+	            		<br id="insertingPointAsig">
 	            	</span> 
 	            </div>
 
@@ -53,14 +70,22 @@
 	            </div>
 	            <br>
 
-	            <div class="d-flex flex-row justify-content-center align-items-center mt-3 curso"> 
+	            <div class="d-flex flex-row justify-content-center align-items-center mt-3 curso">
 	            	<span>Contacto: 
 	            	<br>ejemplo@inf.upv.es</br>
-	             <span class="join">696942069</span> 
-	         </span>
+	            	 <span class="join">696942069</span> 
+	         		</span>
+	        	</div>
+
+	        	<div class="d-flex flex-row justify-content-center align-items-center mt-3 curso">
+	            	Dirección postal:
+	            	<span id="insertZipCode"> s</span>
+	        	</div>
+
 	        </div>
+
 	    </div>
+
 	</div>
-</div>
 </body>
 </html>

@@ -36,6 +36,37 @@
         const goAsign = (url) => {
             document.location.href="./asignatura.html?acron="+url
         }
+
+        $(document).ready(() => {
+            $.ajax({
+                type: "GET",
+                url : localStorage.getItem("machine") + "/expediente/" + getDNI(),
+                cache: false,
+
+                success : (data) => {
+                    data[0].asignaturas.map((elem, i) => {
+                        elem.map((asig) => {
+
+                            $.ajax({
+                                type: "GET",
+                                url : localStorage.getItem("machine") + "/asignaturas/" + asig.id_asig,
+                                cache: false,
+
+                                success : (data_asig) => {
+                                    $("tbody").append(`<tr onclick="goAsign('`+data_asig[0].id+`')">
+                                                          <td>` + data_asig[0].acronimo + `</td>
+                                                          <td>` + data_asig[0].nombre + `</td>
+                                                          <td>` + data_asig[0].anyo + `</td>
+                                                          <td>` + data_asig[0].creditos + `</td>
+                                                          <td>` + data_asig[0].cuatrimestre + `</td>
+                                                        </tr>`)
+                                }
+                            })
+                        })
+                    })
+                }
+            })
+        })
     </script>
     <title>Asignaturas</title>
 </head>
@@ -78,49 +109,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr onclick="goAsign('DCU.2021')">
-                      <td>DCU</td>
-                      <td>Desarrollo Centrado en el Usuario</td>
-                      <td>2021</td>
-                      <td>4,5</td>
-                      <td>A</td>
 
-                    </tr>
-                    <tr onclick="goAsign('IAP.2021')">
-                      <td>IAP</td>
-                      <td>Integración de Aplicaciones</td>
-                      <td>2021</td>
-                      <td>4,5</td>
-                      <td>A</td>
-                    </tr>
-                    <tr onclick="goAsign('DEW.2020')">
-                      <td>DEW</td>
-                      <td>Desarrollo web</td>
-                      <td>2020</td>
-                      <td>4,5</td>
-                      <td>B</td>
-                    </tr>
-                    <tr onclick="goAsign('RCO.2021')">
-                      <td>RCO</td>
-                      <td>Redes Corporativas</td>
-                      <td>2021</td>
-                      <td>4,5</td>
-                      <td>A</td>
-                    </tr>
-                    <tr onclick="goAsign('ISW.2020')">
-                      <td>ISW</td>
-                      <td>Ingeniería del Software</td>
-                      <td>2020</td>
-                      <td>4,5</td>
-                      <td>A</td>
-                    </tr>
-                    <tr onclick="goAsign('AIC.2020')">
-                      <td>AIC</td>
-                      <td>Arquitectura de Computadores</td>
-                      <td>2020</td>
-                      <td>4,5</td>
-                      <td>A</td>
-                    </tr>
                   </tbody>
                 </table>
             </div>
