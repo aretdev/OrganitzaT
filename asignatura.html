@@ -24,7 +24,7 @@
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data").text(searchParams.get('acron').toUpperCase())
-            $("#btn-entregas").attr('href', '/OrganitzaT/entregas.html?asig=IAP')
+            $("#btn-entregas").attr('href', './entregas.html?asig=IAP')
             $("#AcronAsig").text(searchParams.get('acron').toUpperCase());
 
             $.ajax({
@@ -56,12 +56,12 @@
     </script>
     <script type="text/javascript">
       const onclickGo = (url) => {
-            document.location.href="/Organitzat/perfil-profesor.html"
+            document.location.href="./perfil-profesor.html"
         }
     </script>
     <script type="text/javascript">
       const AlumnoGo = (url) => {
-            document.location.href="/Organitzat/perfil.html"
+            document.location.href="./perfil.html"
         }
     </script>
     <title>Detalles de la Asignatura</title>
