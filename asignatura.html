@@ -24,12 +24,12 @@
         $(document).ready(() => {
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data").text(searchParams.get('acron').toUpperCase())
-            $("#btn-entregas").attr('href', '/OrganitzaT/grupos.html?asig='+searchParams.get('acron').toUpperCase())
+            $("#btn-entregas").attr('href', './entregas.html?asig=IAP')
             $("#AcronAsig").text(searchParams.get('acron').toUpperCase());
 
             $.ajax({
               type: "GET",
-              url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase() + ".2021",
+              url: "http://172.23.180.240:8081/asignaturas/" + searchParams.get('acron').toUpperCase(),
               cache: false,
               timeout: 200,
               success: function(data){
@@ -54,7 +54,17 @@
         }
 
     </script>
-    <title></title>
+    <script type="text/javascript">
+      const onclickGo = (url) => {
+            document.location.href="./perfil-profesor.html"
+        }
+    </script>
+    <script type="text/javascript">
+      const AlumnoGo = (url) => {
+            document.location.href="./perfil.html"
+        }
+    </script>
+    <title>Detalles de la Asignatura</title>
 </head>
 <body>  
     <nav id="footernavbar-bar"></nav> 
@@ -72,7 +82,8 @@
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit leo, aliquam convallis mattis a, congue a quam. Sed et mauris nec sapien vehicula condimentum. Fusce elementum felis et tincidunt tincidunt. Curabitur eget felis elit. Nunc ultrices gravida arcu, vel varius nisi egestas et. Fusce libero augue, pellentesque quis libero vitae, sodales venenatis libero. Curabitur venenatis ex mattis convallis egestas. Donec at magna pellentesque, tincidunt massa ac, consequat eros. In placerat, odio in tincidunt auctor, ligula nulla convallis est, vel scelerisque ipsum felis id risus.</p>
             <div class="d-grid col-3 mx-auto">
-              <a id="btn-entregas" class="text-light text-decoration-none btn btn-primary" href=""><i class="bi bi-people-fill"></i> Ver Grupos</a>
+              <a id="btn-entregas" class="text-light text-decoration-none btn btn-primary" href=""><i class="bi bi-journal-bookmark-fill"></i>
+             Ver Actos De Evaluación</a>
             </div>
           </div>
         </div>
@@ -90,12 +101,12 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Pedro Valderas</td>
+                      <td class="cursor-pointer" onclick="onclickGo('');">Pedro Valderas</td>
                       <td><a href="mailto: pvalderas@dsic.upv.es">pvalderas@dsic.upv.es</a></td>
                       <td><a href="chat.html">Enviar Mensaje</a></td>
                     </tr>
                     <tr>
-                      <td>Manoli Albert</td>
+                      <td class="cursor-pointer" onclick="onclickGo('');">Manoli Albert</td>
                       <td><a href="mailto: malbert@dsic.upv.es">malbert@dsic.upv.es</a></td>
                       <td><a href="chat.html">Enviar Mensaje</a></td>
                     </tr>
@@ -130,71 +141,71 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Stefan Vasile Michis</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Stefan Vasile Michis</td>
                       <td><a href="mailto: stefan@inf.upv.es">stefan@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Enrique Tello Barbé</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Enrique Tello Barbé</td>
                       <td><a href="mailto: entelbar@inf.upv.es">entelbar@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Víctor de la Orden Calvete</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Víctor de la Orden Calvete</td>
                       <td><a href="mailto: vicdelao@inf.upv.es">vicdelao@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Ibai Llanos Garatea</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Ibai Llanos Garatea</td>
                       <td><a href="mailto: ibllaga@inf.upv.es">ibllaga@inf.upv.es</a></td>
                     </tr>
                      <tr>
-                      <td>Vicente Rodrigo Brisa</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Vicente Rodrigo Brisa</td>
                       <td><a href="mailto: virodbri@inf.upv.es">virodbri@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Steven Spielberg</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Steven Spielberg</td>
                       <td><a href="mailto: stevspi@inf.upv.es">stevspi@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Johnny Depp</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Johnny Depp</td>
                       <td><a href="mailto: johndep@inf.upv.es">johndep@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Yvonne Strahovski</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Yvonne Strahovski</td>
                       <td><a href="mailto: yvonstra@inf.upv.es">yvonstra@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Robert De Niro</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Robert De Niro</td>
                       <td><a href="mailto: robdeni@inf.upv.es">robdeni@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Jonathan Rhys Meyers</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Jonathan Rhys Meyers</td>
                       <td><a href="mailto: jonrhme@inf.upv.es">jonrhme@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Elisha Cuthbert</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Elisha Cuthbert</td>
                       <td><a href="mailto: eliscuth@inf.upv.es">eliscuth@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Anne Hathaway</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Anne Hathaway</td>
                       <td><a href="mailto: annehatha@inf.upv.es">annehatha@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Taryn Manning</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Taryn Manning</td>
                       <td><a href="mailto: tarmanni@inf.upv.es">tarmanni@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Julianne Moore</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Julianne Moore</td>
                       <td><a href="mailto: juliamoor@inf.upv.es">juliamoor@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Tom Hardy</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Tom Hardy</td>
                       <td><a href="mailto: tomhardy@inf.upv.es">tomhardy@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>David Tennant</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">David Tennant</td>
                       <td><a href="mailto: davitenn@inf.upv.es">davitenn@inf.upv.es</a></td>
                     </tr>
                     <tr>
-                      <td>Scarlett Johansson</td>
+                      <td class="cursor-pointer" onclick="AlumnoGo('');">Scarlett Johansson</td>
                       <td><a href="mailto: scarljoha@inf.upv.es">scarljoha@inf.upv.es</a></td>
                     </tr>
                   </tbody>

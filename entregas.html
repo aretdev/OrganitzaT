@@ -30,13 +30,26 @@
           })
         }
 
+      
+
         $(document).ready(() => {
+
+
+
+          var incidenciaModal2 = document.getElementById('incidenciaModal2')
+            incidenciaModal2.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal2.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+
+            })
+
             let searchParams = new URLSearchParams(window.location.search)
             $("#asig-data a").text(searchParams.get('asig').toUpperCase())
-            $("#grupo-data a").text("Grupo " + searchParams.get('grupo').toUpperCase())
             $.each($(".ver-entrega"), function(index, val) {
                let ent_name = val.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("card-header")[0].textContent;
-               val.setAttribute("href","./entregable.html?asig="+searchParams.get('asig').toUpperCase() + "&grupo="+searchParams.get('grupo').toUpperCase()+"&entregable=" + ent_name);
+               
             });
         })  
     </script>
@@ -55,7 +68,7 @@
             document.location.href= "grupo-no-lider.html?asig=" + refererAsig +"&grupo=" + refererGrup;
         }
     </script>
-    <title></title>
+    <title>Listado de las Entregas</title>
 </head>
 <body>  
     <nav id="footernavbar-bar"></nav> 
@@ -65,13 +78,11 @@
             <ol class="breadcrumb border rounded p-3 bg-light">
                 <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
                 <li class="breadcrumb-item" id="asig-data" onclick="clickGo('asignatura', 'acron');"><a href="#" id="asig-info"></a></li>
-                <li class="breadcrumb-item" onclick="clickGo('grupos', 'asig');"><a href="#" id="grupos-info">Grupos</a></li>
-                <li class="breadcrumb-item" id="grupo-data" onclick="grupoGo();"><a href="#" id="grupo-concreto">Grupo</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Entregas</li>
+                <li class="breadcrumb-item active" aria-current="page">Actos Evaluación</li>
             </ol>
         </nav>
         <div class="mt-3 org-badge badge-info">
-            Acontinuación se muestrán los entregables asignados a la asignatura, haz click en <b>Ver Entrega</b> , para ver detalles de la misma y en <b>Entregar</b> para entregar directamente el trabajo.
+          A continuación se muestran los <b>Actos de Evaluación</b> correspondientes, haga click en <b>Ver Grupos</b> para ver los grupos disponibles o <b>Crear Grupo</b> para crear un grupo própio.
           </div>
         <div class="card mb-3">
           <div class="card-body ps-4 pe-5">
@@ -94,8 +105,8 @@
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
                     <li>
-                      <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a>
+                      <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a>
                     </li>
                   </ul>
                 </div>
@@ -109,8 +120,8 @@
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
-                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a></li>
+                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a></li>
                   </ul>
                 </div>
               </div>
@@ -122,8 +133,8 @@
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
-                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a></li>
+                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a></li>
                   </ul>
                 </div>
               </div>
@@ -140,8 +151,8 @@
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
-                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a></li>
+                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a></li>
                   </ul>
                 </div>
               </div>
@@ -153,8 +164,8 @@
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
-                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a></li>
+                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a></li>
                   </ul>
                 </div>
               </div>
@@ -166,8 +177,8 @@
                   <ul class="list-unstyled ps-3">
                     <li><b>Fecha de entrega: </b>DD/MM/YYYY</li>
                     <li><b>Estado: </b>En Proceso</li>
-                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Entregar</a>
-                      <a class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-file-earmark-arrow-up-fill"></i> Ver Entrega</a></li>
+                    <li> <a class="text-decoration-none btn btn-success btn-sm mt-3 mb-0" href="grupos.html?asig=IAP&act=Entregable 1"><i class="bi bi-people-fill"></i> Ver Grupos</a>
+                      <a data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" class="ver-entrega ms-2 text-decoration-none btn btn-outline-primary btn-sm mt-3 mb-0" href=""><i class="bi bi-plus-square"></i> Crear Grupo</a></li>
                   </ul>
                 </div>
               </div>
@@ -175,5 +186,47 @@
           </div>
         </div>
       </div>
+         <div class="modal fade" id="incidenciaModal2" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Crear grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ¿Deseas crear un grupo para este acto de evaluación? El profesor ha espeficicado un máximo de <b>5</b> integrantes. Al crear el grupo serás el líder de este.
+                <form class="m-4">
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Nombre del grupo</label>
+                    <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                  </div>
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Invitar Compañero:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                        <button class="btn btn-outline-success" type="button"><i class="bi bi-person-plus-fill"></i></button>
+
+                     </div>
+                      <small class="text-secondary">Integrantes del grupo:</small>
+                      <div class="card overflow-auto">
+                        <div class="card-body" style="height: 100px;">
+                          <ul class="text-decoration-none list-unstyled overflow-scroll" style="max-height: 100%;" >
+                            <li>Stefan Vasile Michis <b>(Tu)</b> <u>Lider</u></li>
+                            <li>Vicente Rodrigo Brisa  <a href="" class="fs-5 text-danger"><i class="bi bi-person-dash-fill"></i>
+</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success">Crear</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                
+              </div>
+            </div>
+          </div>
+        </div>
 </body>
 </html>

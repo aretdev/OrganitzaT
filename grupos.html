@@ -36,8 +36,19 @@
             const urlParams = new URLSearchParams(window.location.search);
             const refererAsig = urlParams.get('asig');
             asig.innerHTML = refererAsig;
+            $("#asignatura").attr("href","asignatura.html?acron=" + refererAsig);
 
+
+            let ent = $("#entregable").text(urlParams.get('act'))
             var incidenciaModal = document.getElementById('incidenciaModal')
+            incidenciaModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+              var modalBodyInput = incidenciaModal.querySelector('#alumno-incidencia')
+              modalBodyInput.innerHTML = recipient
+            })
+
+            var incidenciaModal2 = document.getElementById('incidenciaModal2')
             incidenciaModal.addEventListener('show.bs.modal', function (event) {
               var button = event.relatedTarget
               var recipient = button.getAttribute('data-bs-incidencia')
@@ -52,7 +63,7 @@
                             '<div style="float: left;" data-bs-toggle="tooltip"'+ 
                             'data-bs-placement="top" title="Información del grupo"><a href="infogrupo.html?asig=' + refererAsig+ '&grupo=' + i + 
                             '">Grupo '+ i +'</a></div>' + 
-                            '<div data-bs-toggle="modal" data-bs-incidencia="" data-bs-target="#incidenciaModal" data-bs-placement="top" '+'title="Solicitar entrar"class="enter"><i>Solicitar Entrada</i>'+
+                            '<div data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal" data-bs-placement="top" '+'title="Solicitar entrar"class="enter"><i>Solicitar Entrada</i>'+
                            '</div>'+
                             '<div class="num-ints">['+ rand_int(0,5) +' / 5]</div>'+
                         '</button>'+
@@ -63,7 +74,8 @@
               return new bootstrap.Tooltip(tooltipTriggerEl)
             })
          });
-    </script>  
+    </script> 
+    <title>Grupos Disponibles</title> 
 </head>
 <body>
     <div id="navigation-bar"></div> 
@@ -71,18 +83,25 @@
     <div class="body-wrapper">
         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb p-3 border rounded bg-light">
-                <li class="breadcrumb-item"><a href="#">Asignaturas</a></li>
+                <li class="breadcrumb-item"><a href="asignaturas.html">Asignaturas</a></li>
                 <li class="breadcrumb-item"><a id="asignatura" href="#"></a></li>
-                <li class="breadcrumb-item active">Grupos</li>
+                <li class="breadcrumb-item"><a href="#">Actos Evaluación</a></li>
+                <li class="breadcrumb-item active">Grupos Entregable 1</li>
             </ol>
         </nav>
         <div class="org-badge badge-info">
-            Grupos disponibles para el trabajo, solicita unirse para formar parte de uno. 
+            Grupos disponibles para el trabajo, solicita unirse para formar parte de uno o bien crea un grupo si el profesor de la asignatura lo permite. <br>            
         </div>
-            <div class="">
-                <div class="row justify-content-center" id="data">
-                </div>
+
+        <div class="text-center">
+            <div data-bs-toggle="modal" data-bs-incidencia="dummy" data-bs-target="#incidenciaModal2" data-bs-placement="top" title="Crear Grupo" class="btn btn-sm btn-outline-primary w-25">
+                <i> <i class="bi bi-plus-square"></i> Crear Nuevo grupo</i>
             </div>
+        </div>
+        <br>
+        <div class="">
+            <div class="row justify-content-center" id="data">
+        </div>
     </div>
     <div class="modal fade" id="incidenciaModal" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -101,6 +120,48 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-success">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="modal fade" id="incidenciaModal2" tabindex="-1" aria-labelledby="incidenciaModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="incidenciaModalLabel">Crear grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ¿Deseas crear un grupo para este acto de evaluación? El profesor ha espeficicado un máximo de <b>5</b> integrantes. Al crear el grupo serás el líder de este.
+                <form class="m-4">
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Nombre del grupo</label>
+                    <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                  </div>
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Invitar Compañero:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                        <button class="btn btn-outline-success" type="button"><i class="bi bi-person-plus-fill"></i></button>
+
+                     </div>
+                      <small class="text-secondary">Integrantes del grupo:</small>
+                      <div class="card overflow-auto">
+                        <div class="card-body" style="height: 100px;">
+                          <ul class="text-decoration-none list-unstyled overflow-scroll" style="max-height: 100%;" >
+                            <li>Stefan Vasile Michis <b>(Tu)</b> <u>Lider</u></li>
+                            <li>Vicente Rodrigo Brisa  <a href="" class="fs-5 text-danger"><i class="bi bi-person-dash-fill"></i>
+</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success">Crear</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                
               </div>
             </div>
           </div>

@@ -21,22 +21,53 @@
     <script type="text/javascript" src="./js/generateElements.js"></script>
     <script type="text/javascript" src="./js/cookiesSession.js"></script>
     <script type="text/javascript">
+        $(document).ready(()=>{
+            var createGroupModal = document.getElementById('createGroupModal')
+            createGroupModal.addEventListener('show.bs.modal', function (event) {
+              var button = event.relatedTarget
+              var recipient = button.getAttribute('data-bs-incidencia')
+            })
+        })
         const onclickGo = (url) => {
             document.location.href="./"+url
         }
         activarItemMenu("item-home")
     </script>
-    <title></title>
+    <title>OrganitzaT</title>
 </head>
 <body>  
     <nav id="footernavbar-bar"></nav> 
     <div class="body-wrapper">  
         <div class="container-fluid mb-5">
+            <div class="card overflow-auto bg-light" >
+                <div class="card-body p-3 pe-5 ps-5 align-items-center">
+                    <div class="row align-items-center h-100">
+                        <div class="col-auto">
+                            <img src="./img/avatar_default.png" class="rounded-circle border" width="60" alt="...">
+                        </div>
+                        <div class="col">
+                            Bienvenido <b><span  id="alumno_name">Stefan Vasile Michis</span></b>                  
+                        </div>
+                        <div class="col-md-auto m-0">
+                          <div class="float-end">
+                            <button class="btn btn-sm btn-outline-success"><i class="bi bi-file-earmark-person-fill"></i>  Generar Expediente</button>                     
+                         </div>
+                        </div>
+                        <div class="col-md-auto m-0">
+                          <div class="float-end">
+                            <button data-bs-toggle="modal" data-bs-incidencia="" data-bs-target="#createGroupModal" class="btn btn-sm btn-outline-secondary"><i class="bi bi-plus-square-fill"></i> Nuevo Grupo</button>                     
+                         </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
             <div class="container mt-5 row justify-content-center mb-5">
             </div>
             <div class="subtitle ml-2">
 
                 <div class="float-start">Grupos a los que perteneces</div>
+                
 
                 <div class="float-end mb-2">
                     <form onsubmit="return searchScroll(this)">
@@ -44,6 +75,7 @@
                         <span class="float-end"><button type="submit"><i class="bi bi-search"></i></button></span>
                     </form>
                 </div>
+                <br>
                 <hr/>
             </div>
 
@@ -165,13 +197,14 @@
     </div>
         <div class="container-fluid mt-5">
                 <div class="subtitle">
-                    <div class="float-start">Asignaturas con Grupos disponibles</div>
+                    <div class="float-start">Actos de Evaluación con Grupos disponibles</div>
                     <div class="float-end mb-2">
                         <form onsubmit="return searchScroll(this)">
                             <input donde="entre" class="search-on-scroll border" placeholder="Ej: DCU" size="10" type="text" name="data" id="grupos-pertenecientes"> 
                             <span class="float-end"><button type="submit"><i class="bi bi-search"></i></button></span>
                         </form>
                     </div>
+                    <br>
                     <hr/>
                 </div>
             <div id="entre" class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" onscroll="isEnd(this)">
@@ -186,9 +219,9 @@
                     <p class="text-center align-middle">No hay resultados!</p>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=IAP')" class="card-block cards" fullsearch="entre-iapentregable1" acron="iap" ident-data="1">
+                    <div onclick="onclickGo('grupos.html?asig=IAP&entregable=1')" class="card-block cards" fullsearch="entre-iapentregable1" acron="iap" ident-data="1">
                     <div>
-                        <span><p>IAP</p></span>
+                        <span><p>IAP-1</p></span>
                         <ul>
                             <li>Ver Grupos</li>  
                             <li>Disponibles: 6</li>                                 
@@ -198,9 +231,9 @@
                 </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=IAP')" class="card-block cards" fullsearch="entre-iapentregable2" acron="iap" ident-data="2">
+                    <div onclick="onclickGo('grupos.html?asig=IAP&entregable=2')" class="card-block cards" fullsearch="entre-iapentregable2" acron="iap" ident-data="2">
                         <div>
-                            <span><p>IAP</p></span>
+                            <span><p>IAP-2</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -210,9 +243,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=IAP')" class="card-block cards" fullsearch="entre-iapentregable3" acron="iap" ident-data="3">
+                    <div onclick="onclickGo('grupos.html?asig=IAP&entregable=3')" class="card-block cards" fullsearch="entre-iapentregable3" acron="iap" ident-data="3">
                         <div>
-                            <span><p>IAP</p></span>
+                            <span><p>IAP-3</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -222,9 +255,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=DCU')" class="card-block cards" fullsearch="entre-dcuentregable1" acron="dcu" ident-data="1">
+                    <div onclick="onclickGo('grupos.html?asig=DCU&entregable=1')" class="card-block cards" fullsearch="entre-dcuentregable1" acron="dcu" ident-data="1">
                         <div>
-                            <span><p>DCU</p></span>
+                            <span><p>DCU-1</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -234,9 +267,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=DCU')" class="card-block cards" fullsearch="entre-dcuentregable2" acron="dcu" ident-data="2">
+                    <div onclick="onclickGo('grupos.html?asig=DCU&entregable=2')" class="card-block cards" fullsearch="entre-dcuentregable2" acron="dcu" ident-data="2">
                         <div>
-                            <span><p>DCU</p></span>
+                            <span><p>DCU-2</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -246,9 +279,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=DCU')" class="card-block cards" fullsearch="entre-dcuentregable3" acron="dcu" ident-data="3">
+                    <div onclick="onclickGo('grupos.html?asig=DCU&entregable=3')" class="card-block cards" fullsearch="entre-dcuentregable3" acron="dcu" ident-data="3">
                         <div>
-                            <span><p>DCU</p></span>
+                            <span><p>DCU-3</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -258,9 +291,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=IAP')" class="card-block cards" fullsearch="entre-dcuentregable4" acron="dcu" ident-data="4">
+                    <div onclick="onclickGo('grupos.html?asig=IAP&entregable=1')" class="card-block cards" fullsearch="entre-dcuentregable4" acron="dcu" ident-data="4">
                         <div>
-                            <span><p>DCU</p></span>
+                            <span><p>DCU-4</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -270,9 +303,9 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <div onclick="onclickGo('grupos.html?asig=RCO')" class="card-block cards" fullsearch="entre-rcoentregable1" acron="rco" ident-data="1">
+                    <div onclick="onclickGo('grupos.html?asig=RCO&entregable=1')" class="card-block cards" fullsearch="entre-rcoentregable1" acron="rco" ident-data="1">
                         <div>
-                            <span><p>RCO</p></span>
+                            <span><p>RCO-1</p></span>
                             <ul>
                                 <li>Ver Grupos</li>
                                 <li>Disponibles: 6</li>
@@ -284,5 +317,66 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="createGroupModal" tabindex="-1" aria-labelledby="createGroupModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="createGroupModalLabel">Crear grupo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Estás apunto de crear un grupo para un acto de evaluación , rellena los campos necesarios para continuar con la creación. Ten en cuenta que depende los integrantes máximos de cada acto puede cambiar dependiendo de la configuración propuesta por el profesor.
+                <form class="m-4">
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Nombre del grupo</label>
+                    <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                  </div>
+                  <div class="mb-3">
+                        <label for="asignaturaGroup" class="form-label">Asignatura</label>
+                        <select id="asignaturaGroup" class="form-select" aria-label="Seleccione Asignatura">
+                          <option selected></option>
+                          <option value="1">IAP</option>
+                          <option value="2">DCU</option>
+                          <option value="3">DEW</option>
+                          <option value="3">RCO</option>
+                        </select>
+                      
+                  </div>
+                    <div class="mb-3">
+                        <label for="actoGroup" class="form-label">Acto de Evaluación:</label>
+                        <select id="actoGroup" class="form-select" aria-label="Seleccione Asignatura">
+                          <option selected></option>
+                          <option value="1">Entregable 1</option>
+                          <option value="2">Entregable 2</option>
+                          <option value="3">Cuestionarios</option>
+                          <option value="3">Entregable Final</option>
+                        </select>
+                      
+                  </div>
+                  <div class="mb-3">
+                    <label for="NombreGrupo" class="form-label">Invitar Compañero:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="NombreGrupo" aria-describedby="NameGroup">
+                        <button class="btn btn-outline-success" type="button"><i class="bi bi-person-plus-fill"></i></button>
+
+                     </div>
+                      <small class="text-secondary">Integrantes del grupo:</small>
+                      <div class="card overflow-auto">
+                        <div class="card-body" style="height: 100px;">
+                          <ul class="text-decoration-none list-unstyled overflow-scroll" style="max-height: 100%;" >
+                            <li>Stefan Vasile Michis <b>(Tu)</b> <u>Lider</u></li>
+                            <li>Vicente Rodrigo Brisa  <a href="" class="fs-5 text-danger"><i class="bi bi-person-dash-fill"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-success">Crear</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
 </body>
 </html>
