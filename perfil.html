@@ -23,9 +23,15 @@
 	<title>Organitzat - Perfil</title>
 	<script type="text/javascript">
 		$(document).ready(() => {
+			let searchParams = new URLSearchParams(window.location.search)
+			let alumParam = searchParams.get('alumno')
+
+			let dni = (alumParam) ? alumParam : getDNI()
+
+
 			$.ajax({
                 type: "GET",
-                url : localStorage.getItem("machine") + "/expediente/" + getDNI(),
+                url : localStorage.getItem("machine") + "/expediente/" + dni,
                 cache: false,
 
                 success : (data) => {
